@@ -1,0 +1,13 @@
+<!--pages/personnel/teams/teams.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+<view class='yt_container'>
+  <view class='content clearfix'>
+    <view class='cont_h'>
+      <text>{{info.name}}</text>
+    </view>
+    <view class='cont_c'>
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+  </view>
+  
+</view>

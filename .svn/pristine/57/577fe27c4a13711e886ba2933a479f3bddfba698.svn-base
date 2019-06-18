@@ -1,0 +1,140 @@
+@import"../../wxParse/wxParse.wxss";
+/* pages/association_intor/association_intor.wxss */
+.banner image{
+  width:100%;
+  height:270rpx;
+}
+.banner {
+  position: relative;
+  z-index: 80;
+}
+.yt_container{
+  
+ padding-top: 0rpx;
+
+
+  
+}
+/* 介绍主体部分  */
+.ass_intro{
+   position: relative;  
+  font-size: 28rpx; 
+  padding:72rpx 48rpx 0;
+  color:#333;
+  box-shadow: 2rpx 4rpx 4rpx 4rpx rgba(47,129,212,0.12) ;
+  border-radius: 10rpx;
+  top:-64rpx;  
+   z-index: 100; 
+   background-color: #fff;
+  
+}
+.ass_intro >.intro_head{
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: 700;
+  margin: 24rpx 0;
+}
+.ass_intro>.intro_hot {
+  width:100%;
+  text-align: center;
+  margin: 24rpx 0;
+}
+.ass_intro .intro_hot image{
+  width:24rpx;
+  height:28rpx;
+  margin-right: 12rpx;
+}
+.intro_cont{
+  overflow: hidden;
+  height:190rpx;
+}
+/* 详情展示  */
+.detail{
+  height:auto;
+  transition: height 3s;
+}
+/* 点击加载更多 */
+.ass_intro .more{
+  text-align: center;
+}
+
+.ass_intro .more image{
+  margin: 24rpx 0;
+  width:44rpx;
+  height:44rpx;
+}
+.ass_intro .img_res{
+  transform: rotateZ(180deg);
+}
+.sign{
+  width:144rpx;
+  height:144rpx;
+  border-radius: 50%;
+  position: absolute;
+  top:-100rpx;
+  left:260rpx;
+  overflow: hidden;
+  box-shadow: 2rpx 4rpx 4rpx 4rpx rgba(47,129,212,0.12) ;
+}
+.sign image{
+  width:144rpx;
+  height:144rpx;
+  border-radius: 50%;
+}
+/* 加入我们  */
+.join{
+  margin-bottom: 64rpx;
+}
+.join>image{
+  width:100%;
+  height:200rpx;
+}
+/* 相册  */
+.ass_photo{
+  margin-bottom: 64rpx;
+}
+.title{
+  font-size: 32rpx;
+  color:#333;
+  font-weight: 700;
+  margin-bottom: 36rpx;
+}
+.ass_photo>.photo_cont image{
+ width:18%;
+ height:100rpx;
+ margin-right: 16rpx;
+}
+.ass_photo>.photo_cont image:last-child{
+  margin-right: 0;
+}
+/* 活动列表  */
+.ass_act{
+  box-shadow: 2rpx 4rpx 4rpx 4rpx rgba(47,129,212,0.12) ;
+  margin-bottom: 36rpx;
+}
+.act_cont>.cont_head{
+  background-color: #f3f9ff;
+  padding: 24rpx;
+}
+.cont_head>.cont_icon{
+  display: inline-block;
+  height:20rpx;
+  width:4rpx;
+  background-color: #2f81d4;
+  margin-right: 12rpx;
+}
+.cont_head>.th{
+  font-size: 32rpx;
+  color:#333;
+  font-weight: 700;
+}
+.cont_head>.t_time{
+  font-size: 24rpx;
+ color:#999;
+ margin-left: 36rpx;
+}
+.cont_cont{
+  font-size: 28rpx;
+  color:#999;
+  padding: 24rpx;
+}

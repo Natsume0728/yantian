@@ -1,0 +1,77 @@
+.yt_container{
+  font-size:28rpx;
+}
+.monit_banner{
+  width:100%;
+  height:278rpx;
+  /* border:2rpx solid blue; */
+}
+.monit_banner>image{
+  box-sizing: border-box;
+  width:100%;
+  height:100%;
+  /* border:2rpx solid red; */
+}
+/* 预约 报告部分 */
+.monit_my{
+  margin-top: 36rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.monit_my>view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+  height:120rpx;
+  padding: 12rpx 58rpx;
+  color:#2f81d4;
+}
+.monit_my>.my_book{
+  background-color: #ade9ff;
+}
+.monit_my>.my_report{
+  background-color: #caf5d1;
+}
+.monit_my image{
+  width:62rpx;
+  height:68rpx;
+  margin-right: 12rpx;
+}
+/* 常见问题部分  */
+.monit_cont_head{
+  margin-top: 64rpx;
+  margin-bottom: 36rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.monit_cont_head>.m_titile{
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.monit_cont_head>.m_more{
+  font-size: 24rpx;
+  color:#999;
+}
+/* 问题内容  */
+.monit_cont{
+  box-shadow: 4rpx 4rpx 4rpx 4rpx rgba(47,129,212,0.12);
+}
+.monit_cont>.m_cont_head{
+  font-size: 32rpx;
+  font-weight: 700;
+  background-color: #f3f9ff;
+  padding: 24rpx;
+  display: flex;
+  align-items: center;
+}
+.line{
+  width:4rpx;
+  height:20rpx;
+  background-color: #2f81d4;
+  margin-right: 12rpx;
+}
+.monit_cont>.m_cont{
+  padding: 24rpx;
+  color:#999;
+}

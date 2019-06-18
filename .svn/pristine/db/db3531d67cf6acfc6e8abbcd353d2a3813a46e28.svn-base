@@ -1,0 +1,81 @@
+/* pages/association_list/association_list.wxss */
+.yt_container{
+  padding-left: 40rpx;
+}
+.ass_title{
+  font-size: 28rpx;
+  width:400rpx;
+  margin:0 auto;
+  border: 2rpx solid #2f81d4;
+  border-radius: 10rpx;
+  height:60rpx;
+  line-height: 60rpx;
+  overflow:hidden;
+}
+
+.comn{
+  width:200rpx;
+  height:60rpx;
+  text-align: center;
+  background-color: #fff;
+  color:#2f81d4;
+}
+.now{
+  width:200rpx;
+  height:60rpx;
+  text-align: center;
+  background-color: #2f81d4;
+  color:#fff;
+}
+/* 场馆列表  */
+.ass_list{
+  margin-top: 48rpx;
+  position: relative;
+   font-size: 24rpx; 
+  padding:48rpx 24rpx 48rpx 84rpx;
+  color:#999;
+  margin-left: 60rpx;
+  margin-bottom: 36rpx;
+  /* border: 1rpx solid red; */
+  box-shadow: 0rpx 2rpx 4rpx 4rpx rgba(47,129,212,0.12) ;
+  margin-right: 8rpx;
+}
+.ass_list>.list_head{
+  font-size: 32rpx;
+  /* font-weight: 600; */
+  color:black;
+}
+.ass_list>.list_time{
+ margin-top: 24rpx;
+}
+.ass_list>.hot{
+   position: absolute;
+   right:24rpx;
+   bottom:48rpx;
+}
+.ass_list>.hot image{
+  width:24rpx;
+  height:28rpx;
+  margin-right: 12rpx;
+}
+.ass_list>.sign{
+  width:120rpx;
+  height:120rpx;
+  border-radius: 50%;
+  position: absolute;
+  top:20rpx;
+  left:-60rpx;
+  overflow: hidden;
+  box-shadow: 0rpx 2rpx 4rpx 4rpx rgba(47,129,212,0.12) ;
+}
+.sign image{
+  width:120rpx;
+  height:120rpx;
+  border-radius: 50%;
+}
+/* swiper  */
+swiper{
+  
+  width: 100%;  
+  /*overflow: hidden;*/    
+}

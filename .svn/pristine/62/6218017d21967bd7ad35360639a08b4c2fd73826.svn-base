@@ -1,0 +1,27 @@
+/* pages/index/recom_read/recom_read.wxss */
+/* 问题内容  */
+.yt_container{
+  font-size:28rpx;
+}
+.monit_cont{
+  box-shadow: 4rpx 4rpx 4rpx 4rpx rgba(47,129,212,0.12);
+  margin-bottom: 36rpx;
+}
+.monit_cont>.m_cont_head{
+  font-size: 32rpx;
+  font-weight: 700;
+  background-color: #f3f9ff;
+  padding: 24rpx;
+  display: flex;
+  align-items: center;
+}
+.line{
+  width:4rpx;
+  height:20rpx;
+  background-color: #2f81d4;
+  margin-right: 12rpx;
+}
+.monit_cont>.m_cont{
+  padding: 24rpx;
+  color:#999;
+}

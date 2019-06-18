@@ -1,0 +1,18 @@
+<!--pages/report/my_report/my_report.wxml-->
+<!-- 小贴士  -->
+<view class='tips' bindtap='hideNotice' wx:if='{{showNotice}}'>报告生成周期为一周，请耐心等候 <image src='../../../images/close.png'></image></view>
+<!-- 报告  -->
+<view class='yt_container'>
+  <view class='my_report' bindtap='toDetail' wx:for='{{reportList}}' wx:key='' data-id='{{item.item_id}}'>
+    <view class="user_name">{{item.name}}</view>
+    <view class='detail'>查看详情</view>
+    <!-- 编号部分  -->
+    <view class='card'>
+      <image src='../../../images/note.png'></image>
+      <view class='card_box'>
+        <view class='card_cont'>编号：<text class='num'>{{item.item_number}}</text></view>
+        <view class='card_cont'>测试日期：<text class='num'>{{item.date}}</text></view>
+      </view>
+    </view>
+  </view>
+</view>

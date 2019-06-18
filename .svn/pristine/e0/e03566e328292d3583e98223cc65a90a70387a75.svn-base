@@ -1,0 +1,196 @@
+<!--index.wxml-->
+<!-- 背景图  -->
+<view class='bg_pic'>
+  <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/bg.jpg'></image>
+</view>
+<!-- 跑步人物  -->
+<image class='run' src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/person.png'></image>
+<!-- 切换赛事  -->
+<image class='choice' src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/switch_team.png' bindtap='toTeam'></image>
+<view class='container'>
+  <view class='list'>
+    <view class="list_item {{currentTab==0?'current':''}}" data-current='0' bindtap='tabList'>日榜</view>
+    <view class="list_item {{currentTab==1?'current':''}}" data-current='1' bindtap='tabList'>月榜</view>
+    <view class="list_item {{currentTab==2?'current':''}}" data-current='2' bindtap='tabList'>上榜规则</view>
+  </view>
+  <!-- 日榜  -->
+  <scroll-view scroll-y='true' class="list_cont" wx:if="{{currentTab==0}}">
+    <view class='dayList'>
+      <!-- 个人信息  -->
+      <view class='content'>
+        <view class='user'>
+          <image class='user_img ' src="{{userInfo.avatarUrl}}"></image>
+          <view class='user_infor '>
+          <view class='user_name'>{{nickName}}</view>
+            <view class='user_rank'>{{selfRankInfo.rankName}}</view>
+          </view>
+        </view>
+        <view class='u_data'>
+          <view class='step'>{{selfRankInfo.step}}</view>
+          <view class='like'>
+            <view>1</view>
+            <view bindtap='good'>
+            <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/aww_select.png' wx:if='{{good}}'></image>
+            <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/aww_unselected.png' wx:else></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 跑不死星  -->
+      <view class="team {{show1==0?'runMost':''}}" wx:if='{{list.length>0}}'>
+        <view class='team_head'>
+          <view class='name_box'>
+            <view class='team_name '>{{person_title[0]}}</view>
+            <view class='triangle'></view>
+            <view class='triangle2'></view>
+          </view>
+          <view bindtap='show1'><text class='seeMore' >查看全部</text></view>
+        </view>
+        <!-- 跑不死星模块  -->
+        <view class='content'  wx:for="{{list}}"  wx:key=''>
+          <view class='user'>
+            <view class='num '>{{index+1}}</view>
+            <image class='user_img ' src='{{item.headimgurl}}'></image>
+            <view class='user_infor '>
+              <view class='user_name'>{{item.nickname}}</view>
+            </view>
+          </view>
+          <view class='u_data'>
+            <view class='step'>{{item.step}}</view>
+            <view class='like'>
+              <view>100</view>
+              <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/emm_select.png' wx:if='{{good}}'></image>
+              <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/emm_unselect.png' wx:else></image>
+            </view>
+          </view>
+        </view>
+        
+      </view>
+      <!-- 地球  -->
+      <view class="team {{show2==0?'runear':''}}">
+        <view class='team_head'>
+          <view class='name_box'>
+            <view class='team_name '>{{person_title[1]}}</view>
+            <view class='triangle'></view>
+            <view class='triangle2'></view>
+          </view>
+          <view bindtap='show2'><text class='seeMore' >查看全部</text></view>
+        </view>
+        <!-- 地球10000步以上模块  -->
+        <view class='content' wx:for='{{list1}}' wx:key=''>
+          <view class='user'>
+            <view class='num '>{{index+list.length+1}}</view>
+            <image class='user_img ' src="{{item.headimgurl}}"></image>
+            <view class='user_infor '>
+              <view class='user_name'>{{item.nickname}}</view>
+            </view>
+          </view>
+          <view class='u_data'>
+            <view class='step'  wx:if='{{item.step>=10000}}'>{{item.step}}</view>
+            <view class='step'  wx:else id='step_less'>{{item.step}}</view>
+            <view class='like'>
+              <view>100</view>
+               <view bindtap='good'>
+              <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/aww_select.png' wx:if='{{good}}'></image>
+              <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/aww_unselected.png' wx:else></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- 地球10000步以下模块  -->       
+      </view>
+    </view>
+  </scroll-view>
+  <!--月榜  -->
+  <scroll-view scroll-y='true' class="list_cont" wx:elif="{{currentTab==1}}">
+    <view class='monList'>
+      <view class='title'>
+        <!-- 名次 2 -->
+        <view class='rank'>
+          <view class='rank_num'>2</view>
+          <view class='user_img'>
+           <image src='{{monthList[1]["headimgurl"]}}'></image>
+          </view>
+          <view class='user_name'>{{monthList[1]["nickname"]}}</view>
+          <view class='step'>
+            累计步行
+          </view>
+          <view class='step_num'>
+           <text>{{monthList[1]["kilometer"]}}</text>公里 
+            </view>
+          <view class='title_name'>
+           <text>{{monthList[1]['title']}}</text> -->
+            <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/medal_second.png'></image>
+          </view>
+        </view>
+        <!-- 名次 1 -->
+        <view class='rank rank1'>
+          <view class='rank_num'>1</view>
+          <view class='user_img'>
+             <image src='{{monthList[0]["headimgurl"]}}'></image> 
+          </view>
+           <view class='user_name'>{{monthList[0]['nickname']}}</view> 
+          <view class='step'>
+            累计步行
+          </view>
+          <view class='step_num'>
+             <text>{{monthList[0]['kilometer']}}</text>公里
+            </view> 
+          <view class=' title_name1'>
+             <text>{{monthList[0]['title']}}</text> 
+            <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/medal_first.png'></image>
+          </view>
+        </view>
+        <!-- 名次3  -->
+        <view class='rank rank3'>
+          <view class='rank_num'>3</view>
+          <view class='user_img'>
+             <image src='{{monthList[2]["headimgurl"]}}'></image> 
+          </view>
+           <view class='user_name'>{{monthList[2]['nickname']}}</view> 
+          <view class='step'>
+            累计步行
+          </view>
+          <view class='step_num'>
+             <text>{{monthList[2]['kilometer']}}</text>公里
+            </view>
+          <view class='title_name'>
+             <text>{{monthList[2]['title']}}</text> 
+            <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/medal_third.png'></image>
+          </view>
+        </view>
+
+      </view>
+    </view>
+    <!-- 名次3以后  -->
+    <view class='team'>
+      <!-- 3名以后  -->
+      <view class='content' wx:for='{{monthList}}' wx:key='' wx:if='{{index>2}}'>
+        <view class='user'>
+          <view class='num '>{{index+1}}</view>
+          <image class='user_img ' src='{{item.headimgurl}}'></image>
+          <view class='user_infor '>
+            <view class='user_name'>{{item.nickname}}</view>
+          </view>
+        </view>
+        <view class='u_data'>
+          <view class='steps'>累计步行</view>
+          <view class='total'>
+            <text>{{item.kilometer}}</text>公里
+          </view>
+        </view>
+      </view>      
+    </view>
+  </scroll-view>
+  <!--上榜规则  -->
+  <scroll-view scroll-y='true' class="list_cont" wx:elif="{{currentTab==2}}">
+    <view class='dayList'>
+      <view class='rule'>
+        <view class='rule_tit'>{{rule.title}}</view>
+        <view>
+        {{rule.content}}
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

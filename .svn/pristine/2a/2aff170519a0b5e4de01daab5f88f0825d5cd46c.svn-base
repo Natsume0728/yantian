@@ -1,0 +1,131 @@
+.yt_container{
+  padding: 46rpx 24rpx;
+  color:#999;
+  position: relative;
+  font-size: 28rpx;
+}
+/* 报告编号  */
+.card{
+  position: absolute;
+  top:36rpx;
+  right:30rpx;
+}
+.card>image{
+  width:390rpx;
+  height: 140rpx;
+}
+.card>.card_box{
+ color:#fff;
+ position: absolute;
+ z-index: 100;
+ top:16rpx;
+ right:12rpx;
+ padding: 24rpx 24rpx 24rpx 48rpx;
+ box-sizing: content-box;
+}
+.card>.card_cont{
+  font-size: 24rpx;
+}
+/* 用户基本信息  */
+.my_infor{
+  padding: 48rpx 0;
+  box-shadow: 4rpx 4rpx 4rpx 4rpx rgba(47,129,212,0.12);
+  margin-bottom: 48rpx;
+}
+.my_infor>.infor_title{
+  font-size: 36rpx;
+  color: #333;
+  font-weight: 700;
+  margin: 0rpx 48rpx 64rpx;
+}
+.my_infor>.infor_cont{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.my_infor>.infor_cont>.cont_box{
+  width:50%;
+  text-align: center;
+  padding: 20rpx 0;
+  box-sizing: border-box;  
+}
+.my_infor>.infor_cont>.cont_box:first-child{
+  
+}
+.my_infor>.infor_cont>.cont_box>.cont_user{
+  font-size: 36rpx;
+  color:#2f81d4;
+  margin-bottom: 0rpx;
+}
+/* 体质监测报告  */
+.my_report{
+  position: relative;
+  padding: 48rpx 0 0rpx;
+  box-shadow: 4rpx 4rpx 4rpx 4rpx rgba(47,129,212,0.12);
+}
+.my_report>.report_title{
+  font-size: 36rpx;
+  color: #333;
+  font-weight: 700;
+  margin: 16rpx 48rpx 64rpx;
+}
+.my_report>.report_cont{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
+.my_report>.report_cont>.r_cont_box{
+  width:49%;
+  text-align: right;
+  padding: 24rpx 24rpx 24rpx 36rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.my_report>.report_cont>.r_cont_box:first-child{
+  
+}
+.my_report>.report_cont>.r_cont_box:last-child{
+  width:98%;
+}
+.my_report>.report_cont>.r_cont_box:last-child>.r_cont_user{
+  text-align: center;
+  padding-top: 48rpx;
+}
+.my_report>.report_cont>.r_cont_box>.r_cont_user{
+  font-size: 36rpx;
+  color:#2f81d4;
+  text-align: left;
+  margin-bottom: 8rpx;
+}
+/* 生成报告卡片  */
+.rep_card{
+  background-color: #2f81d4;
+  color: #fff;
+  padding: 12rpx 24rpx;
+  position: absolute;
+  top:48rpx;
+  right: 48rpx;
+  border-radius: 10rpx;
+}
+/* 分数标签  */
+.heal_index{
+  position: absolute;
+  top:24rpx;
+  right:12rpx;
+  font-size: 24rpx;
+  color:#fff;
+  width:130rpx;
+  padding:8rpx 0rpx;
+  border-radius: 24rpx;
+  text-align: center;
+}
+.bg_red{
+  background-color: #f85353;
+}
+.bg_org{
+  background-color: #f89d54;
+}
+.bg_gre{
+  background-color: #63d696;
+}

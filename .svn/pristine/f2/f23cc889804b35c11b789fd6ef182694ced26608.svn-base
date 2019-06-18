@@ -1,0 +1,27 @@
+<!--pages/tyt_index/tyt_index.wxml-->
+<view class='yt_container'>
+  <view class='booking' bindtap='toBooking'>
+    <image src='http://yantian.iron-box.cn/newyantian/Public/minImages/index1.png'></image>
+  </view>
+  <view class='middle clearfix'>
+    <view class='fl'>
+      <view class='train' bindtap='toTrain'>
+      <image src='http://yantian.iron-box.cn/newyantian/Public/minImages/index2.png'></image>
+      </view>
+      <view class='associ ' bindtap='toAssoci'>
+      <image src='http://yantian.iron-box.cn/newyantian/Public/minImages/index4.png'></image>
+      </view>
+    </view>
+    <view class='fl'>
+      <view class='monitor ' bindtap='toMonitor'>
+      <image src='http://yantian.iron-box.cn/newyantian/Public/minImages/index3.png'></image>
+      </view>
+      <view class='marathon 'bindtap='toMarathon'>
+      <image src='http://yantian.iron-box.cn/newyantian/Public/minImages/index5.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='query' bindtap='toQuery'>
+    <image src='http://yantian.iron-box.cn/newyantian/Public/minImages/index6.png'></image>
+  </view>
+</view>

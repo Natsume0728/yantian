@@ -1,0 +1,13 @@
+<!--pages/personnel/coach/coach.wxml-->
+
+<view class='yt_container'>
+  <view class='coach_img'><image src='{{info.icon}}'></image></view>
+  <view class='content'>
+    <view class='cont_h'>
+      <text class='coach_name'>{{info.name}}</text><text class='coach_k'>{{info.position}}</text>
+    </view>
+    <view class='cont_c'>
+     {{info.introduce}}
+    </view>    
+  </view>  
+</view>

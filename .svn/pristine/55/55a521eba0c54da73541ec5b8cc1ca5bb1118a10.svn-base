@@ -1,0 +1,24 @@
+/* pages/sports/sports.wxss */
+.yt_container{
+  font-size:28rpx;
+}
+.content{
+  box-sizing: border-box;
+  padding:48rpx;
+	box-shadow: 4rpx 4rpx 4rpx 4rpx rgba(223, 222, 222, 0.5);
+	width: 100%;
+  
+}
+.cont_h{
+  font-size: 32rpx;
+  color:#333;
+  font-weight: 700;
+  text-align: center;
+}
+.cont_c{
+  width:100%;
+  margin-top: 64rpx;
+  font-size: 24rpx;
+  color:#333;
+  line-height: 44rpx;
+}

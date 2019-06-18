@@ -1,0 +1,43 @@
+<!--pages/personnel/sport_teams/sport_teams.wxml-->
+<view class='yt_container'>
+  <view class='h_title clearfix'>
+    <view class="comn fl {{category_id==1?'now':''}}" data-category_id='1' bindtap='switchNow'>运动队</view>
+    <view class="comn fr {{category_id==2?'now':''}}" data-category_id='2' bindtap='switchNow'>教练员</view>
+  </view>
+    <!-- 运动图标部分  -->
+    <view class='sport' wx:if="{{category_id==1}}">
+    <view class='sport_pic' bindtap='toTeams' wx:for='{{teamList}}' wx:key='' data-id='{{item.id}}'><image src='{{item.icon}}'></image>
+      <view class='sport_txt'><text>{{item.name}}</text></view>
+    </view>   
+  </view>
+  <!-- 教练部分  -->
+  <view class='coach_box'  wx:elif="{{category_id==2}}">
+    <view class='coach_pic' wx:for='{{coachList}}' wx:key='' wx:for-item='citem' bindtap='toCoach' data-id='{{citem.id}}'><image src='{{citem.icon}}'></image>
+      <view class='coach'><text>{{citem.position}}</text></view>
+      <view class='coach_name'><text>{{citem.name}}</text></view>
+    </view>    
+  </view>
+</view>
+<!--底部部分   flex布局-->
+<view class='foot'>
+  <view class='foot_box'>
+    <view class='foot_flex' bindtap='toPlaceintro'>
+      <view>
+        <image src='../../../images/tab_bar_place_unselected.png'></image>
+      </view>
+      <text>场所</text>
+    </view>
+    <view class='foot_flex ' bindtap='toMysign'>
+      <view>
+        <image src='../../../images/tab_bar_person_select.png'></image>
+      </view>
+      <text class='opt'>队伍</text>
+    </view>
+      <view class='foot_flex ' bindtap='toRepair'>
+      <view>
+        <image src='../../../images/tab_bar_repair_unselected.png'></image>
+      </view>
+      <text>报修</text>
+      </view>
+    </view>
+</view>

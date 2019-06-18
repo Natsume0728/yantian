@@ -1,0 +1,22 @@
+<view class='foot'>
+  <view class='foot_box'>
+    <view class='foot_flex'>
+      <view>
+        <image src='../../../images/tab_bar_place_select.png'></image>
+      </view>
+      <text class='opt'>场所</text>
+    </view>
+    <view class='foot_flex' bindtap='toSportsteam'>
+      <view>
+        <image src='../../../images/tab_bar_person_unselected.png'></image>
+      </view>
+      <text>队伍</text>
+    </view>
+      <view class='foot_flex' bindtap='toRepair'>
+      <view>
+        <image src='../../../images/tab_bar_repair_unselected.png'></image>
+      </view>
+      <text>报修</text>
+      </view>
+    </view>
+</view>

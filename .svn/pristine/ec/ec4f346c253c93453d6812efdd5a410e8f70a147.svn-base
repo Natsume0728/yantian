@@ -1,0 +1,61 @@
+/* pages/report/my_report/my_report.wxss */
+/* 小贴士  */
+.tips{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  padding: 16rpx;
+  background-color: #f3f9ff;
+  font-size: 24rpx;
+  color:#2f81d4;
+}
+.tips>image{
+  width:44rpx;
+  height:44rpx;
+  margin-left: 25rpx;
+}
+/* 报告部分  */
+.yt_container{
+  padding-top: 53rpx;
+  font-size:28rpx;
+}
+.my_report{
+  padding: 84rpx 24rpx 24rpx 48rpx;
+  box-shadow: 4rpx 4rpx 4rpx 4rpx rgba(47,129,212,0.12);
+  color: #2f81d4;
+  position: relative;
+  margin-bottom: 36rpx;
+}
+.my_report>.user_name{
+  font-size: 48rpx;
+  font-weight: 700;
+  margin-bottom: 36rpx;
+  text-align: left;
+}
+.my_report>.detail{
+  font-size: 24rpx;
+  text-align: right;
+}
+/* 报告编号  */
+.my_report>.card{
+  position: absolute;
+  top:-17rpx;
+  right:0;
+}
+.my_report>.card>image{
+  width:390rpx;
+  height: 140rpx;
+}
+.my_report>.card>.card_box{
+ color:#fff;
+ position: absolute;
+ z-index: 100;
+ top:16rpx;
+ right:12rpx;
+ padding: 24rpx 24rpx 24rpx 48rpx;
+ box-sizing: content-box;
+}
+.my_report>.card>.card_cont{
+  font-size: 24rpx;
+}

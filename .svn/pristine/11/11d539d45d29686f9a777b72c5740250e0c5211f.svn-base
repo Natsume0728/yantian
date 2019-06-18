@@ -1,0 +1,27 @@
+<!--pages/place/place_intro/place_intro.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+<view class='yt_container'>
+<view class='banner'><image src='../../../images/bg1.png' ></image></view>
+<!-- 场馆介绍  -->
+ <view class='place_intro clearfix'>
+  <view class='list_r'>
+      <view class='list_head'>{{info.name}}</view>
+      <view class='list_cont clearfix'>
+        <view class='infor'>
+          <image class='local fl' src='../../../images/list_location.png' wx:if='{{info.address}}'></image>{{info.address}}</view>
+        <view class='infor'>
+          <image class='phone fl' src='../../../images/list_phone.png' wx:if='{{info.tel}}'></image>{{info.tel}}</view>
+      </view>
+    </view>
+ </view>
+ <view class='title'>场馆详情</view>
+ <!-- 场馆详情 -->
+  <view class='place_item'>
+  <view class='place_pic'><image src='../../../images/bg1.png'></image></view>
+  <!-- <view class='intro_cont'>
+    <view class='cont_head'> 营业时间：<text class='am'>8:00-12:00</text><text class='pm'>14:00-23:00</text></view>
+  </view> -->
+    <view class='cont_intro'><template is="wxParse" data="{{wxParseData:article.nodes}}" /></view>
+  </view>
+</view>
+

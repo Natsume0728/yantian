@@ -1,0 +1,17 @@
+<!--pages/act_trans/act_trans.wxml-->
+<view class='yt_container'>
+  <view class='tran_content' wx:for='{{list}}' wx:key='' bindtap='toTrainDetail' data-id='{{item.id}}'>   
+    <view class='tran_pic  '>
+        <image src='{{item.image}}' mode='scaleToFill'></image>
+    </view>
+    <view class='tran_item '>
+      <view class='tran_it_h'>{{item.title}}</view>
+      <view class='tans_txt'>
+        <image class='fl' src='../../images/list_Location.png'></image>
+        <view class='fl text_box'>
+          <text>{{item.address}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

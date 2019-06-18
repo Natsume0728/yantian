@@ -1,0 +1,36 @@
+<!--pages/tansintro/tansintro.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class='yt_container'>
+<view class='content' >
+   <view class='cont_head'>{{detail.title}}</view>
+      <view class='cont_ct'>
+        <view class='v_icon clearfix' wx:if='{{detail.address}}'>
+          <image src='../../images/list_Location.png' class='fl'></image>
+          <view class='.text_box fl'>{{detail.address}}</view>
+        </view>
+        <view class='v_icon clearfix' wx:if='{{detail.tel}}'>
+          <image src='../../images/icon-phone.png' class='fl'></image>
+          <view class='.text_box fl'><text>{{detail.tel}}</text></view>
+        </view>
+      </view>
+</view>
+<view class='tab'>
+  <view class='tab_list clearfix'> 
+  <view class="tab_cont fl {{currentTab==0 ? 'on' : ''}}"  data-current='0' bindtap='swichTabs'>简介</view>
+  <view class="tab_cont fl {{currentTab==1 ? 'on' : ''}}"  data-current='1' bindtap='swichTabs'>招生</view>
+  <view class="tab_cont fl {{currentTab==2 ? 'on' : ''}}"  data-current='2' bindtap='swichTabs'>相册</view>
+  </view>
+  <view class="tab_item {{currentTab==0 ? 'now' : ''}}" wx:if='{{detail.des}}'>
+    <view class='content'><template is="wxParse" data="{{wxParseData:des.nodes}}" /></view>   
+  </view>
+  <view class="tab_item {{currentTab==1 ? 'now' : ''}}" wx:if='{{detail.content}}'>
+    <view class='content '><template is="wxParse" data="{{wxParseData:content.nodes}}" /></view>    
+  </view>
+  <view class="tab_item {{currentTab==2 ? 'now' : ''}}">
+    <view class='content clearfix '>
+     <image src='{{item}}' wx:for='{{detail.act_ppt}}' wx:key=''></image>
+    </view>
+  </view>
+  
+</view>
+</view>

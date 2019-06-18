@@ -1,0 +1,74 @@
+<view class="yt_container">
+  <!-- 搜索  -->
+  <view class="yt_search">
+    <input  class="search" type="text" maxlength="20" name="keywords"  placeholder-class="psection" maxlength="18" placeholder="键入关键词搜索" bindblur='formSubmitSport'>
+    </input>
+    <image src='../../images/search_search.png'></image>
+  </view>
+  <!-- banner  -->
+  <!-- <view class='yt_banner'bindtap='toSportIntro' >
+    <image src='../../images/banner.png' ></image>
+  </view> -->
+  <!-- 活动部分  -->
+  <view class='activity'>
+    <view class='act_head clearfix' wx:if='{{list.activityList}}'>
+      <text class='fl th'>活动</text>
+      <text class='fr ta' bindtap="toActivityList">查看全部</text>
+    </view>
+    <view class='act_content' wx:for='{{list.activityList}}' wx:key='' bindtap='toActivityDetail' data-id='{{item.act_id}}'>
+      <view class='cont_head'>{{item.act_title}}</view>
+      <view class='cont_ct'>
+        <view class='tans_txt clearfix'>
+          <image class='fl' src='../../images/list_Location.png'></image>
+          <view class='fl text_box'><text>{{item.act_address}}</text></view>
+        </view>
+        <!-- <view class='v_icon'>
+          <image src='../../images/list_time.png' class='s_ad'></image>
+          <text>{{item.act_begin_time}}</text>
+        </view> -->
+        <view class='tans_txt clearfix'>
+          <image class='fl' src='../../images/list_time.png'></image>
+          <view class='fl text_box'><text>{{item.act_begin_time}}</text></view>
+        </view>
+      </view>
+      <view class='now' wx:if='{{item.is_on}}'>正在进行中</view>
+    </view>   
+  </view>
+  <!-- 培训部分  -->
+  <view class='trans'>
+    <view class='tran_head clearfix' wx:if='{{list.trainingList}}'>
+      <text class='fl th'>培训机构</text>
+      <text class='fr ta' bindtap='toTrainingList'>查看全部</text>
+    </view>
+    <view class='tran_content clearfix' wx:for='{{list.trainingList}}' wx:key='' bindtap='toTrainDetail' data-id='{{item.id}}'>
+      <view class='tran_pic fl'>
+        <image src='{{item.image}}'></image>
+      </view>
+      <view class='tran_item fr'>
+        <view class='tran_it_h'>{{item.title}}</view>
+        <view class='tans_txt clearfix'>
+          <image class='fl' src='../../images/list_Location.png'></image>
+          <view class='fl text_box'><text>{{item.address}}</text></view>
+        </view>
+      </view>
+      </view>
+  </view>
+
+</view>
+<!--底部部分  -->
+<view class='foot'>
+  <view class='foot_box'>
+    <view class='fl'>
+      <view>
+        <image src='../../images/tab_bar_activity_select.png'></image>
+      </view>
+      <text class='opt'>活动培训</text>
+    </view>
+    <view class='fr' bindtap='toMysign'>
+      <view>
+        <image src='../../images/tab_bar_self_selected.png'></image>
+      </view>
+      <text>我的报名</text>
+    </view>
+  </view>
+</view>

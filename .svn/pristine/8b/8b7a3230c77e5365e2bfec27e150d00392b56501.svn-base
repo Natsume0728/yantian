@@ -1,0 +1,25 @@
+/* pages/activity/activity.wxss */
+.content{
+  padding:48rpx;
+ box-shadow: 4rpx 4rpx 4rpx 4rpx rgba(47,129,212,0.12);
+  margin-bottom: 36rpx;
+  box-sizing: border-box;
+}
+.content >.cont_head{
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 700;
+}
+.content .cont_ct{
+  margin-top: 24rpx;
+}
+.content .cont_ct .v_icon{
+  font-size: 28rpx;
+  color:#999;
+}
+.content .cont_ct .v_icon image{
+  width:30rpx;
+  height:30rpx;
+  vertical-align: middle;
+  margin-right: 12rpx;
+}

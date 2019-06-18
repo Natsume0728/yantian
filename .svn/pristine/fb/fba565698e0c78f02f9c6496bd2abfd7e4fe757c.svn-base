@@ -1,0 +1,82 @@
+<!--pages/repair/repair/repair.wxml-->
+<view class='yt_container'>
+  <view class='content_t'>
+    <view class='title'>报修须知</view>
+    <view class='cont'>请详细填写以下信息</view>
+  </view>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+ <!-- 个人信息  -->
+  <view class='content'>
+    <view class='c_now'>个人信息</view>
+    <view class='cont_inp clearfix'>
+      <text class='fl' for="username">姓名</text>
+      <input class='fr' id="username" name='name' type="text" placeholder-class="psection" maxlength="8" value='' placeholder='请输入姓名'></input>
+    </view>
+    <view class='cont_inp clearfix'>
+      <text class='fl'>手机</text>
+      <input class='fr' name='tel' type="tel" placeholder-class="psection" maxlength="11" value='' placeholder='请输入手机号'></input>
+    </view>
+  </view>
+ <!-- 报修信息  -->
+  <view class='content' >
+    <view class='c_now'>报修详情</view>
+    <view class='cont_inp clearfix' bindtap='show'>
+      <text class='fl' for="username">街道</text>
+        <input class='fr' type="text" placeholder-class="psection" maxlength="20" value='{{street}}' name='street' placeholder='请选择街道'></input>  
+    </view>
+    <view class='cont_inp clearfix'>
+      <text class='fl'>地址</text>
+      <input class='fr' type="text" placeholder-class="psection" name='address' maxlength="50" value='' placeholder='请填写详细地址'></input>
+    </view>
+    <view class='cont_inp clearfix'>
+      <text class='fl'>情况</text>
+      <input class='fr' type="text" placeholder-class="psection" name='note' maxlength="255" value='' placeholder='请描述设备状况'></input>
+    </view>
+  </view>
+  <!--上传图片  -->
+  <view class='content2' >
+    <view class='c_now'>上传图片</view>
+    <view class='addimg wx:if="{{imglist?"":"hideimg"}}"' wx:for='{{imglist}}' wx:key='' wx:for-item='img'><image src='{{img}}' ></image>
+    <view class='del' bindtap='delimg' data-index='{{index}}'>
+    <image src='../../../images/img_cancel.png' ></image>
+    </view></view>
+    <view class='add clearfix' bindtap='uploadimg'>+</view>
+    <textarea name='imglist' style='display:none' maxlength='-1' value='{{json_imglist}}'></textarea>
+  </view>
+  <button formType='submit' >确认报修</button>
+  </form>
+</view>
+
+<!-- 遮罩层部分 -->
+<view class='mask' hidden="{{flag}}">
+  <view class='mask_box'>
+    <view class="mask_head ">选择街道</view>
+    <view class="mask_cont {{currenttab=='盐田街道'?'current':''}}" data-current='盐田街道' bindtap='switchCurrent'>盐田街道</view>
+    <view class="mask_cont {{currenttab=='梅沙街道'?'current':''}}" data-current='梅沙街道' bindtap='switchCurrent'>梅沙街道</view>
+    <view class="mask_cont {{currenttab=='沙头角街道'?'current':''}}" data-current='沙头角街道' bindtap='switchCurrent'>沙头角街道</view>
+    <view class="mask_cont {{currenttab=='海山街道'?'current':''}}" data-current='海山街道' bindtap='switchCurrent'>海山街道</view>
+  </view>
+</view>
+<!--底部部分   flex布局-->
+<view class='foot'>
+  <view class='foot_box'>
+    <view class='foot_flex' bindtap='toPlaceintro'>
+      <view>
+        <image src='../../../images/tab_bar_place_unselected.png'></image>
+      </view>
+      <text>场所</text>
+    </view>
+    <view class='foot_flex ' bindtap='toSportsteam'>
+      <view>
+        <image src='../../../images/tab_bar_person_unselected.png'></image>
+      </view>
+      <text>队伍</text>
+    </view>
+      <view class='foot_flex '>
+      <view>
+        <image src='../../../images/tab_bar_Repair_select.png'></image>
+      </view>
+      <text class='opt'>报修</text>
+      </view>
+    </view>
+</view>

@@ -1,0 +1,22 @@
+/* pages/personnel/teams/teams.wxss */
+@import"../../../wxParse/wxParse.wxss";
+.content{
+  box-sizing: border-box;
+  padding:48rpx;
+	box-shadow: 4rpx 4rpx 4rpx 4rpx rgba(47,129,212,0.12) ;
+	width: 100%;
+  
+}
+.cont_h{
+  font-size: 32rpx;
+  color:#333;
+  font-weight: 700;
+  text-align: center;
+}
+.cont_c{
+  width:100%;
+  margin-top: 64rpx;
+  font-size: 24rpx;
+  color:#333;
+  line-height: 44rpx;
+}

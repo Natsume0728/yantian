@@ -1,0 +1,135 @@
+<!--pages/index/booking/booking.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+<view class='bk_banner'>
+  <image src='../../../images/booking_bg.png'></image>
+</view>
+<view class='yt_container'>
+  <!-- 预约须知  -->
+  <view class='bk_book'>
+    <view class='bk_title'>预约须知</view>
+    <view class='bk_cont'>
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+    <!-- 圆圈  -->
+    <view class='dot_box'>
+      <view class='dot'>
+        <view class='att'></view>
+      </view>
+      <view class='dot'>
+        <view class='att'></view>
+      </view>
+
+    </view>
+  </view>
+  <!-- 预约信息填写  默认-->
+  <form bindsubmit='formSubmit' bindreset='formReset' autoscroll='false'>
+    <view class='bk_infor' wx:if="{{substate}}" bindtap='btnstyle' scroll='false'>
+      <view class='dot_box'>
+        <view class='dot'></view>
+        <view class='dot'></view>
+      </view>
+      <view class='bk_inp'>
+        <text>日期</text>
+        <input disabled='true' name='date' value='{{date}}' placeholder-class='pc' placeholder='点击图标选择'></input>
+        <picker value="{{dateIndex}}" range="{{dateArray}}" bindchange="calendarClick">
+          <image class='date' src='../../../images/date.png'></image>
+        </picker>
+      </view>
+      <view class='bk_inp'>
+        <text>时间</text>
+        <input disabled='true' name='time_range' value='{{time_range}}' placeholder-class='pc' placeholder='点击图标选择'></input>
+        <picker value="{{timeIndex}}" range="{{timeArray}}" bindchange="timeRangeClick">
+          <image class='date' src='../../../images/date.png'></image>
+        </picker>
+      </view>
+      <view class='bk_inp'>
+        <text>姓名</text>
+        <input placeholder-class='pc' name='name' maxlength='20' placeholder='请输入预约人姓名'></input>
+      </view>
+      <view class='bk_inp'>
+        <text>年龄</text>
+        <input placeholder-class='pc' name='age' type='number' maxlength='2' placeholder='请输入预约人年龄'></input>
+      </view>
+      <view class='bk_inp2'>性别
+        <text class="{{gender=='1'?'gender':''}}" data-clicked='1' bindtap='clicked'>男</text>
+        <text class="{{gender=='2'?'gender':''}}" data-clicked='2' bindtap='clicked'>女</text>
+      </view>
+      <view class='bk_inp'>
+        <text>手机</text>
+        <input placeholder-class='pc' name='tel' type='number' maxlength='11' placeholder='请输入预约人手机号码'></input>
+      </view>
+      <view class='bk_inp'>
+        <text class='card'>身份证</text>
+        <input placeholder-class='pc' type='idcard' name='identity' maxlength='18' placeholder='请输入预约人身份证号码'></input>
+      </view>
+      <!-- 圆圈  -->
+      <view class='dot_box'>
+        <view class='dot'>
+          <view class='att'></view>
+        </view>
+        <view class='dot'>
+          <view class='att'></view>
+        </view>
+      </view>
+    </view>
+    <!-- 预约信息填写 满 -->
+    <view class='bk_infor2' wx:else>
+      <view class='dot_box'>
+        <view class='dot'></view>
+        <view class='dot'></view>
+      </view>
+      <view class='bk_inp'>
+        <text>日期</text>
+        <input disabled='true' placeholder-class='pc' placeholder='2018-01-17'></input>
+        <image class='date' src='../../../images/date_full.png'></image>
+      </view>
+      <view class='bk_inp'>
+        <text>姓名</text>
+        <input disabled='true' placeholder-class='pc' placeholder='请输入预约人姓名'></input>
+      </view>
+      <view class='bk_inp'>
+        <text>年龄</text>
+        <input disabled='true' placeholder-class='pc' placeholder='请输入预约人年龄'></input>
+      </view>
+      <view class='bk_inp2'>性别
+        <text>男</text>
+        <text>女</text>
+      </view>
+      <view class='bk_inp'>
+        <text>手机</text>
+        <input disabled='true' placeholder-class='pc' placeholder='请输入预约人手机号码'></input>
+      </view>
+      <view class='bk_inp'>
+        <text class='card'>身份证</text>
+        <input disabled='true' placeholder-class='pc' placeholder='请输入预约人身份证号码'></input>
+      </view>
+      <!-- 圆圈  -->
+      <view class='dot_box'>
+        <view class='dot'>
+          <view class='att'></view>
+        </view>
+        <view class='dot'>
+          <view class='att'></view>
+        </view>
+      </view>
+    </view>
+    <!--提交  -->
+    <view>
+      <!-- 圆圈  -->
+      <button wx:if="{{substate}}" class="{{butstyle?'write':''}}" bindtap='Submit' formType='submit'>
+        <view class='dot_box2'>
+          <view class='dot'></view>
+          <view class='dot'></view>
+        </view>
+        确认提交
+      </button>
+      <button class="full" wx:else>
+        <view class='dot_box2'>
+          <view class='dot'></view>
+          <view class='dot'></view>
+        </view>
+        名额已满
+      </button>
+    </view>
+  </form>
+</view>

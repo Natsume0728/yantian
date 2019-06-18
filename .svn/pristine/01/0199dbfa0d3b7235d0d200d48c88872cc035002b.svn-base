@@ -1,0 +1,104 @@
+<!--pages/report/my_detail/my_detail.wxml-->
+<view class='yt_container'>
+<!-- 编号  -->
+  <view class='card'>
+    <image src='../../../images/note.png'></image>
+    <view class='card_box'>
+      <view class='card_cont'>编号：<text class='num'>{{person.item_number}}</text></view>
+      <view class='card_cont'>测试日期：<text class='num'>{{person.date}}</text></view>
+    </view>
+  </view>
+<!-- 用户信息部分  -->
+  <view class='my_infor'>
+    <view class='infor_title'><text>基本信息</text></view>
+    <view class='infor_cont'>
+      <view class='cont_box'>
+       <view class='cont_user' >{{person.name}}</view>
+       <view class='cont_title'>姓名</view>
+      </view>
+      <view class='cont_box'>
+       <view class='cont_user' >{{person.sex}}</view>
+       <view class='cont_title'>性别</view>
+      </view>
+      <view class='cont_box'>
+       <view class='cont_user' >{{person.age}}</view>
+       <view class='cont_title'>年龄</view>
+      </view>
+      <view class='cont_box'>
+       <view class='cont_user' >{{person.born}}</view>
+       <view class='cont_title'>出生日期</view>
+      </view>
+    </view>
+  </view>
+  <!-- 体质报告部分  -->
+  <view class='my_report'>
+    <view class='report_title'><text>体质监测报告</text></view>
+    <view class='report_cont'>
+      <block wx:for='{{person.other_data}}' wx:key='' wx:for-item='item'>
+      <!-- <block wx:for='{{items}}' wx:for-index='ci' wx:key='' wx:for-item='item'>             -->
+      <view class='r_cont_box' >
+       <view class='r_cont_user' >{{item.score}}</view>
+       <view class='r_cont_title'>{{item.name}}</view>
+       <view class='heal_index bg_red ' wx:if='{{item.level<=2 &&item.level>0}}'>{{item.level}}</view>
+       <view class='heal_index bg_gre' wx:elif='{{item.level==3}}'>{{item.level}}</view>
+       <view class='heal_index bg_org' wx:elif='{{item.level>3}}'>{{item.level}}</view>
+        <view class='heal_index' wx:else>{{item.level}}</view>
+      </view>      
+      <image wx:if='{{item.show==1}}' src='../../../images/vertical_line_long.png' style='width:2rpx; height:128rpx'></image>
+      <image wx:if='{{item.show==0}}' src='../../../images/line.png' style='width:610rpx; height:2rpx;'></image>
+      <!-- </block> -->
+      </block> 
+      <view class='r_cont_box' wx:if='{{person.total}}'>
+       <view class='r_cont_user' >{{person.total}}</view>
+       <view class='r_cont_title'>总评</view>
+       <!-- <view class='heal_index bg_gre'></view> -->
+      </view> 
+      <!-- <view class='r_cont_box'>
+       <view class='r_cont_user' >140.6</view>
+       <view class='r_cont_title'>{{}}</view>
+       <view class='heal_index bg_red'></view>
+      </view> -->
+       
+       
+      <!-- <view class='r_cont_box'>
+       <view class='r_cont_user' >3000ml</view>
+       <view class='r_cont_title'>肺活量</view>
+       <view class='heal_index bg_org'>2分</view>
+      </view>
+      <image src='../../../images/vertical line_long.png' style='width:2rpx; height:128rpx'></image>
+      <view class='r_cont_box'>
+       <view class='r_cont_user' >42</view>
+       <view class='r_cont_title'>台阶指数</view>
+       <view class='heal_index bg_gre'>5分</view>
+      </view>
+      <image src='../../../images/line.png' style='width:610rpx; height:2rpx;'></image> 
+      <view class='r_cont_box'>
+       <view class='r_cont_user' >38.2kg</view>
+       <view class='r_cont_title'>握力</view>
+      </view>
+      <image src='../../../images/vertical line_long.png' style='width:2rpx; height:128rpx'></image>
+      <view class='r_cont_box'>
+       <view class='r_cont_user' >-18cm</view>
+       <view class='r_cont_title'>坐立体前屈</view>
+      </view>
+      <image src='../../../images/line.png' style='width:610rpx; height:2rpx;'></image> 
+      <view class='r_cont_box'>
+       <view class='r_cont_user' >0.54s</view>
+       <view class='r_cont_title'>选择反应时间</view>
+      </view>
+      <image src='../../../images/vertical line_long.png' style='width:2rpx; height:128rpx'></image>
+      <view class='r_cont_box'>
+       <view class='r_cont_user' >103s</view>
+       <view class='r_cont_title'>闭眼单立足</view>
+      </view>
+      <image src='../../../images/line.png' style='width:610rpx; height:2rpx;'></image> 
+      <view class='r_cont_box'>
+       <view class='r_cont_user' >42分</view>
+       <view class='r_cont_title'>台阶指数</view>
+       <view class='heal_index bg_gre'>5分</view>
+      </view> -->
+    </view>
+    <!-- 生成报告卡片  -->
+    <!-- <view class='rep_card' bindtap='toCard'>生成报告卡片</view> -->
+  </view>
+</view>

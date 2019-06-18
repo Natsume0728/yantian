@@ -1,0 +1,471 @@
+<!--pages/team/team.wxml-->
+<!-- 背景图  -->
+<view class='bg_pic'>
+  <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/bg.jpg'></image>
+</view>
+<!-- 跑步人物  -->
+<image class='run' src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/person.png'></image>
+<!-- 切换赛事  -->
+<image class='choice' src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/switch_personal.png' bindtap='toPersonal'></image>
+<view class='m-container'>
+  <view class='list'>
+    <view class="list_item {{currentTab==0?'current':''}}" data-current='0' bindtap='tabList'>我的队伍</view>
+    <view class="list_item {{currentTab==1?'current':''}}" data-current='1' bindtap='tabList'>日榜</view>
+    <view class="list_item {{currentTab==2?'current':''}}" data-current='2' bindtap='tabList'>月榜</view>
+  </view>
+  <!-- 日榜  -->
+  <scroll-view scroll-y='true' class="list_cont" wx:if="{{currentTab==1}}">
+    <view class='dayList'>
+      <!-- 个人信息 -->
+      <view class='content '>
+        <view class='user'>
+          <view class='user_infor '>
+            <view class='user_name'>咸蛋超人</view>
+            <view class='user_rank'>第9名</view>
+          </view>
+        </view>
+        <view class='u_data'>
+          <view class='step'>
+            <text>30</text>公里</view>
+          <view class='like'>
+            <view>1</view>
+            <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/aww_unselected.png'></image>
+          </view>
+        </view>
+      </view>
+      <!-- 队员  -->
+      <view class='team'>
+        <!-- 队员  -->
+        <view class='content'>
+          <view class='user'>
+            <view class='num '>1</view>
+            <view class='user_infor '>
+              <view class='user_name'>深圳铁盒子</view>
+            </view>
+          </view>
+          <view class='u_data'>
+            <view class='step'>
+              <text>20</text>公里</view>
+            <view class='like'>
+              <view>100</view>
+              <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/aww_select.png'></image>
+            </view>
+          </view>
+        </view>
+        <!-- 队员  -->
+        <view class='content'>
+          <view class='user'>
+            <view class='num '>1</view>
+            <view class='user_infor '>
+              <view class='user_name'>深圳铁盒子</view>
+            </view>
+          </view>
+          <view class='u_data'>
+            <view class='step'>
+              <text>20</text>公里</view>
+            <view class='like'>
+              <view>100</view>
+              <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/aww_select.png'></image>
+            </view>
+          </view>
+        </view>
+        <!-- 队员  -->
+        <view class='content'>
+          <view class='user'>
+            <view class='num '>1</view>
+            <view class='user_infor '>
+              <view class='user_name'>深圳铁盒子</view>
+            </view>
+          </view>
+          <view class='u_data'>
+            <view class='step'>
+              <text>20</text>公里</view>
+            <view class='like'>
+              <view>100</view>
+              <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/aww_select.png'></image>
+            </view>
+          </view>
+        </view>
+        <!-- 队员  -->
+        <view class='content'>
+          <view class='user'>
+            <view class='num '>1</view>
+            <view class='user_infor '>
+              <view class='user_name'>深圳铁盒子</view>
+            </view>
+          </view>
+          <view class='u_data'>
+            <view class='step'>
+              <text>20</text>公里</view>
+            <view class='like'>
+              <view>100</view>
+              <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/aww_select.png'></image>
+            </view>
+          </view>
+        </view>
+        <!-- 队员  -->
+        <view class='content'>
+          <view class='user'>
+            <view class='num '>1</view>
+            <view class='user_infor '>
+              <view class='user_name'>深圳铁盒子</view>
+            </view>
+          </view>
+          <view class='u_data'>
+            <view class='step'>
+              <text>20</text>公里</view>
+            <view class='like'>
+              <view>100</view>
+              <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/aww_select.png'></image>
+            </view>
+          </view>
+        </view>
+
+
+      </view>
+    </view>
+  </scroll-view>
+  <!--月榜 -->
+  <scroll-view scroll-y='true' class="list_cont" wx:elif="{{currentTab==2}}">
+    <view class='monList'>
+      <view class='title'>
+        <!-- 名次 2 -->
+        <view class='rank'>
+          <view class='rank_num'>2</view>
+          <view class='user_img'>
+            <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/hu.jpg'></image>
+          </view>
+          <view class='user_name'>超人不会飞</view>
+          <view class='step'>
+            累计步行
+          </view>
+          <view class='step_num'>
+            <text>224</text>公里</view>
+          <view class='title_name'>
+            <text>称号五个字</text>
+            <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/tmedal_second.png'></image>
+          </view>
+        </view>
+        <!-- 名次 1 -->
+        <view class='rank rank1'>
+          <view class='rank_num'>1</view>
+          <view class='user_img'>
+            <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/hu.jpg'></image>
+          </view>
+          <view class='user_name'>超人不会飞</view>
+          <view class='step'>
+            累计步行
+          </view>
+          <view class='step_num'>
+            <text>300</text>公里</view>
+          <view class=' title_name1'>
+            <text>称号五个字</text>
+            <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/tmedal_first.png'></image>
+          </view>
+        </view>
+        <!-- 名次3  -->
+        <view class='rank rank3'>
+          <view class='rank_num'>3</view>
+          <view class='user_img'>
+            <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/hu.jpg'></image>
+          </view>
+          <view class='user_name'>超人不会飞</view>
+          <view class='step'>
+            累计步行
+          </view>
+          <view class='step_num'>
+            <text>224</text>公里</view>
+          <view class='title_name'>
+            <text>称号五个字</text>
+            <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/tmedal_third.png'></image>
+          </view>
+        </view>
+
+      </view>
+      <!-- 名次3以后  -->
+      <!-- 队员  -->
+      <view class='team'>
+        <!-- 队员  -->
+        <view class='content'>
+          <view class='user'>
+            <view class='num '>1</view>
+            <view class='user_infor '>
+              <view class='user_name'>深圳铁盒子</view>
+            </view>
+          </view>
+          <view class='u_data'>
+            <view class='step'>
+              <text>20</text>公里</view>
+            <view class='like'>
+              <view>100</view>
+              <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/aww_select.png'></image>
+            </view>
+          </view>
+        </view>
+        <!-- 队员  -->
+        <view class='content'>
+          <view class='user'>
+            <view class='num '>1</view>
+            <view class='user_infor '>
+              <view class='user_name'>深圳铁盒子</view>
+            </view>
+          </view>
+          <view class='u_data'>
+            <view class='step'>
+              <text>20</text>公里</view>
+            <view class='like'>
+              <view>100</view>
+              <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/aww_select.png'></image>
+            </view>
+          </view>
+        </view>
+        <!-- 队员  -->
+        <view class='content'>
+          <view class='user'>
+            <view class='num '>1</view>
+            <view class='user_infor '>
+              <view class='user_name'>深圳铁盒子</view>
+            </view>
+          </view>
+          <view class='u_data'>
+            <view class='step'>
+              <text>20</text>公里</view>
+            <view class='like'>
+              <view>100</view>
+              <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/aww_select.png'></image>
+            </view>
+          </view>
+        </view>
+        <!-- 队员  -->
+        <view class='content'>
+          <view class='user'>
+            <view class='num '>1</view>
+            <view class='user_infor '>
+              <view class='user_name'>深圳铁盒子</view>
+            </view>
+          </view>
+          <view class='u_data'>
+            <view class='step'>
+              <text>20</text>公里</view>
+            <view class='like'>
+              <view>100</view>
+              <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/aww_select.png'></image>
+            </view>
+          </view>
+        </view>
+        <!-- 队员  -->
+        <view class='content'>
+          <view class='user'>
+            <view class='num '>1</view>
+            <view class='user_infor '>
+              <view class='user_name'>深圳铁盒子</view>
+            </view>
+          </view>
+          <view class='u_data'>
+            <view class='step'>
+              <text>20</text>公里</view>
+            <view class='like'>
+              <view>100</view>
+              <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/aww_select.png'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 我的队伍  -->
+  <scroll-view scroll-y='true' class="list_cont" wx:elif="{{currentTab==0}}">
+    <!--有队伍时主页  -->
+    <view class='myteam dayList' wx:if="{{hasteam==true}}" hidden='{{invite}}'>
+      <view class='content '>
+        <view class='user'>
+          <view class='user_infor '>
+            <view class='user_name'>咸蛋超人</view>
+            <view class='user_rank'>第9名</view>
+          </view>
+        </view>
+        <view class='u_data'>
+          <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/button_invitation.png' class='button' bindtap='inviteFriend'></image>
+          <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/button_quit.png' class='button' bindtap='quitTeam'></image>
+        </view>
+      </view>
+      <!-- 地球  -->
+      <view class='team'>
+        <view class='team_head'>
+          <view class='name_box'>
+            <view class='team_name '>队员榜单</view>
+            <view class='triangle'></view>
+            <view class='triangle2'></view>
+          </view>
+
+        </view>
+        <!-- 模块  -->
+        <view class='content'>
+          <view class='user'>
+            <view class='num '>1</view>
+            <image class='user_img ' src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/hu.jpg'></image>
+            <view class='user_infor '>
+              <view class='user_name'>深圳铁盒子</view>
+            </view>
+          </view>
+          <view class='u_data'>
+            <view class='step'>12826</view>
+            <view class='like'>
+              <view>100</view>
+              <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/aww_select.png'></image>
+            </view>
+          </view>
+        </view>
+        <!-- 模块  -->
+        <view class='content'>
+          <view class='user'>
+            <view class='num '>1</view>
+            <image class='user_img ' src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/hu.jpg'></image>
+            <view class='user_infor '>
+              <view class='user_name'>深圳铁盒子</view>
+            </view>
+          </view>
+          <view class='u_data'>
+            <view class='step'>11826</view>
+            <view class='like'>
+              <view>100</view>
+              <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/aww_unselected.png'></image>
+            </view>
+          </view>
+        </view>
+        <!-- 模块  -->
+        <view class='content'>
+          <view class='user'>
+            <view class='num '>1</view>
+            <image class='user_img ' src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/hu.jpg'></image>
+            <view class='user_infor '>
+              <view class='user_name'>深圳铁盒子</view>
+            </view>
+          </view>
+          <view class='u_data'>
+            <view class='step'>11826</view>
+            <view class='like'>
+              <view>100</view>
+              <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/aww_unselected.png'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 没有队伍时首页  -->
+    <view class='myteam' wx:if="{{noteam==0}}" hidden='{{hasteam}}'>
+      <view class='tips'>
+        <view>您尚未加入任何队伍，</view>
+        <view>是否加入他人队伍或自行创建队伍？</view>
+      </view>
+      <!-- 加入创建队伍按钮 -->
+      <view class='btn_box'>
+        <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/button_join.png' class='button2' bindtap='joinTeam'></image>
+        <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/button_establish.png' class='button2' bindtap='setTeam'></image>
+      </view>
+      <!-- 团队赛简介  -->
+      <view class='teamRaceIntro'>
+        <view class='intro_head'>团队赛简介</view>
+        <view class='intro_content'>
+          团队赛简介团队赛简介团队赛简介团队赛简介团队赛简介团队赛简介团队赛简介团队赛简介
+        </view>
+      </view>
+    </view>
+    <!-- 搜索加入队伍  -->
+    <view class='myteam' wx:if="{{noteam==1}}" hidden='{{hasteam}}'>
+      <view class='top_search'>
+        <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/return.png' class='backs' bindtap='back'></image>
+        <view class='search'>
+          <input></input>
+          <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/search.png'></image>
+        </view>
+      </view>
+      <!-- 加入队伍  -->
+      <view class='joinTeam'>
+        <view class='team_name'>
+          听说团队名可以十个字
+          <text>(8/10)</text>
+        </view>
+        <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/button_join_in.png' bindtap='joinThis'></image>
+      </view>
+      <!-- 加入队伍  -->
+      <view class='joinTeam'>
+        <view class='team_name'>
+          听说团队名可以十个字
+          <text>(8/10)</text>
+        </view>
+        <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/button_join_in.png'></image>
+      </view>
+      <!-- 加入队伍  -->
+      <view class='joinTeam'>
+        <view class='team_name'>
+          听说团队名可以十个字
+          <text>(8/10)</text>
+        </view>
+        <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/button_join_in.png'></image>
+      </view>
+      <!-- 加入队伍  -->
+      <view class='joinTeam'>
+        <view class='team_name'>
+          听说团队名可以十个字
+          <text>(8/10)</text>
+        </view>
+        <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/button_join_in.png'></image>
+      </view>
+      <!-- 加入队伍  -->
+      <view class='joinTeam'>
+        <view class='team_name'>
+          听说团队名可以十个字
+          <text>(8/10)</text>
+        </view>
+        <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/button_join_in.png'></image>
+      </view>
+      <!-- 加入队伍  -->
+      <view class='joinTeam'>
+        <view class='team_name'>
+          听说团队名可以十个字
+          <text>(8/10)</text>
+        </view>
+        <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/button_join_in.png'></image>
+      </view>
+
+    </view>
+    <!-- 创建队伍  -->
+    <view class='myteam' wx:if="{{noteam==2}}" hidden='{{hasteam}}'>
+      <view class='top_search'>
+        <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/return.png' class='backs' bindtap='back'></image>
+      </view>
+      <!-- 队伍规则  -->
+      <view class='teamRaceIntro'>
+        <view class='intro_head'>规则</view>
+        <view class='intro_content'>
+          团队赛简介团队赛简介团队赛简介团队赛简介团队赛简介团队赛简介团队赛简介团队赛简介 团队赛简介团队赛简介团队赛简介团队赛简介团队赛简介团队赛简介团队赛简介团队赛简介 团队赛简介团队赛简介团队赛简介团队赛简介团队赛简介团队赛简介团队赛简介团队赛简介
+        </view>
+      </view>
+      <!-- 建立队伍名称  -->
+      <view class='setName'>
+        <input name='setname' placeholder='队伍名称'></input>
+        <view>
+          <text>0</text>/10</view>
+      </view>
+      <view class='set'>
+        <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/button_determine.png' bindtap='myTeam'></image>
+      </view>
+    </view>
+    <!-- 邀请好友  -->
+    <view class='invite'  wx:if="{{invite}}">
+      <view class='invit_name'>
+        <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/team name.png'></image>
+        <view class='invit_box'>超人不会飞所以只能走</view>
+      </view>
+      <view class='member'>(<text>6</text>/8)</view>
+      <view>我在 <text class='teamName'>超人不会飞所以只能走</text> 等你，</view>
+      <view>快来加入我们把~</view>
+      <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/marathon/button_join.png' bindtap='joinMyteam'></image>
+    </view>
+    <!-- 队伍已满  -->
+    <view class='mask'>
+      <view>人数已满，无法邀请好友</view>
+    </view>
+  </scroll-view>
+</view>

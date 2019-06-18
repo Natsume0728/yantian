@@ -1,0 +1,78 @@
+/* pages/personnel/sport_teams/sport_teams.wxss */
+@import '/pages/place/placelist/placelist.wxss';
+.h_title{
+  font-size: 28rpx;
+  width:400rpx;
+  margin:0 auto;
+  border: 2rpx solid #2f81d4;
+  border-radius: 10rpx;
+  height:60rpx;
+  line-height: 60rpx;
+  overflow:hidden;
+}
+
+.comn{
+  width:200rpx;
+  height:60rpx;
+  text-align: center;
+  background-color: #fff;
+  color:#2f81d4;
+}
+.now{
+  width:200rpx;
+  height:60rpx;
+  text-align: center;
+  background-color: #2f81d4;
+  color:#fff;
+}
+/* 图标部分  */
+.sport{
+  margin-top: 48rpx;
+  width:100%;
+  display: flex;
+  justify-content:flex-start;
+  flex-wrap: wrap;
+   border:1rpx solid #cadef1;
+}
+.sport>.sport_pic{
+  box-sizing: border-box;
+  width:33.33%;
+  border:1rpx solid #cadef1;
+  text-align: center;
+  padding: 24rpx 0;
+}
+.sport_pic image{
+  width:90rpx;
+  height:110rpx;
+}
+.sport_txt{
+  font-size: 32rpx;
+  color:#2f81d4;
+}
+/* 教练部分  */
+.coach_box{
+  margin-top: 48rpx;
+  width:100%;
+  display: flex;
+  justify-content:flex-start;
+  flex-wrap: wrap;
+  border:1rpx solid #cadef1;
+  font-size: 28rpx;
+  margin-bottom: 100rpx;
+  
+}
+.coach_box>.coach_pic{
+  box-sizing: border-box;
+  width:33.33%;
+  border:1rpx solid #cadef1;
+  text-align: center;
+  padding:12rpx 12rpx 24rpx;
+}
+.coach_pic image{
+  width:100%;
+  height:260rpx;
+  margin-bottom: 24rpx;
+  }
+  .coach_pic .coach_name{
+    font-size: 32rpx;
+  }

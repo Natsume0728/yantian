@@ -1,0 +1,59 @@
+<!--pages/bodyindex/my_appoint/my_appoint.wxml-->
+<view class='yt_container'>
+  <view class='app_tab'>
+    <view class="normal {{currenttab==0?'app_now':''}}" data-tab='0' bindtap='toTab'>我的预约</view>
+    <view class="normal {{currenttab==1?'app_now':''}}" data-tab='1' bindtap='toTab'>历史预约</view>
+  </view>
+  <view class='tab_box' style="display:{{currenttab==0?'block':'none'}}">
+    <!-- 我的预约信息  -->
+    <view class='cont' wx:for='{{userlist.now}}' wx:key='' wx:for-item='first'>      
+      <view class='user_name'>{{first.name}}</view>
+      <view class='app_cont' wx:if="{{index==0}}"  data-id='{{first.id}}'>
+        <view class='infor'><text class='items'>测试时间</text> <text class='user_infors'>{{first.booking_date}}</text></view>
+        <view class='infor'><text class='items'>性别</text> <text class='user_infors'>{{first.gender==1?'男':'女'}}</text></view>
+        <view class='infor'><text class='items'>年龄</text> <text class='user_infors'>{{first.age}}</text></view>
+        <view class='infor'><text class='items'>手机</text> <text class='user_infors'>{{first.tel}}</text></view>
+        <view class='infor'><text class='items'>身份证</text> <text class='user_infors'>{{first.identity}}</text></view>
+        <view class='infor'><view class='app_cancel' bindtap='cancel_booking' data-id='{{first.id}}'>取消预约</view></view>
+      </view>
+      <view class='app_cont' wx:else="style='display:none'"  data-id='{{first.id}}'>
+        <view class='infor'><text class='items'>测试时间</text> <text class='user_infors'>{{first.booking_date}} {{first.time_range}}</text></view>
+        <view class='infor'><text class='items'>性别</text> <text class='user_infors'>{{first.gender==1?'男':'女'}}</text></view>
+        <view class='infor'><text class='items'>年龄</text> <text class='user_infors'>{{first.age}}</text></view>
+        <view class='infor'><text class='items'>手机</text> <text class='user_infors'>{{first.tel}}</text></view>
+        <view class='infor'><text class='items'>身份证</text> <text class='user_infors'>{{first.identity}}</text></view>
+        <view class='infor'><view class='app_cancel' bindtap='cancel_booking' data-id='{{first.id}}'>取消预约</view></view>
+      </view>
+      <!-- 预约信息  -->     
+    </view>
+       <!-- <view class='user_name' >{{item.name}}</view>  -->
+      <!-- 无预约信息  -->
+    <view class='empty'style="display:{{userlist.now.length>0?'none':'block'}}" bindtap='goToBooking'>
+      <image src='../../../images/empty_state.png'></image>
+      <view class='tips'>您还没有预约体质监测哦，</view>
+      <view class='tips'>先去进行预约吧~</view>
+    </view>
+  </view>
+  <!-- 历史预约信息  -->
+  <view class='tab_box ' style="display:{{currenttab==1?'block':'none'}}" >
+    <view class='cont' wx:for="{{userlist.history}}"  wx:key=''>
+      <view class='user_name'>{{item.name}}</view>
+      <view class='app_cont'>
+        <view class='infor'><text class='items'>测试时间</text> <text class='user_infors'>{{item.booking_date}} {{item.time_range}}</text></view>
+        <view class='infor'><text class='items'>性别</text> <text class='user_infors'>{{item.gender==1?'男':'女'}}</text></view>
+        <view class='infor'><text class='items'>年龄</text> <text class='user_infors'>{{item.age}}</text></view>
+        <view class='infor'><text class='items'>手机</text> <text class='user_infors'>{{item.tel}}</text></view>
+        <view class='infor'><text class='items'>身份证</text> <text class='user_infors'>{{item.identity}}</text></view>
+        <view class='infor'><view class='app_cancel'>{{item.status_des}}</view></view>
+      </view>
+      <!-- 预约信息  -->
+      <!-- <view class='user_name' wx:for='{{userlist}}' wx:key=''>{{item.name}}</view> -->
+    </view>
+    <!-- 无预约信息  -->
+    <view class='empty' style="display:{{userlist.history.length>0?'none':'block'}}" bindtap='goToBooking'>
+      <image src='../../../images/empty_state.png'></image>
+      <view class='tips'>您还没有历史预约记录哦，</view>
+      <view class='tips'>先去进行预约吧~</view>
+    </view>
+  </view>
+</view>

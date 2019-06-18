@@ -1,0 +1,43 @@
+/* pages/index/report_detail/report_detail.wxss */
+@import"../../../wxParse/wxParse.wxss";
+.yt_container{
+  font-size: 28rpx;
+  color:#333;
+}
+.act_head{
+  font-size: 38rpx;
+  font-weight: 700;
+}
+.act_time{
+  margin: 48rpx 0;
+  color:#999;
+  font-size: 24rpx;
+}
+.act_pic{
+  margin: 24rpx 0;
+  width:100%;
+  height:180rpx;
+}
+.act_pic>image{
+  width:100%;
+  height:100%;
+}
+/* 底部  */
+.act_foot{
+  display: flex;
+  justify-content: space-between;
+  margin: 48rpx 0;
+   color:#999;
+  font-size: 24rpx;
+  
+}
+.act_foot>.mid{
+  display: flex;
+ align-items: center;
+}
+.act_foot image{
+  width:44rpx;
+  height:44rpx;
+  /* vertical-align: middle; */
+   margin-right: 10rpx; 
+}

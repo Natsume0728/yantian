@@ -1,0 +1,299 @@
+//index.js
+//获取应用实例
+const app = getApp()
+var data_ = require('../../../utils/data.js');
+Page({
+  data: {
+    person_title:["跑不死星","地球"],
+    currentTab: 0,//tab
+    show1:0,//跑不死星显示 默认不显示全部
+    show2:0,//地球
+    list:[],//步数3万以上
+    list1:[],//步数1万-3万
+    monthList:[],//月榜单
+    good:false,//点赞
+    nickName:'',
+    userInfo:'',
+    selfRankInfo:'',
+    rule:[],
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      // 获取用户信息
+      wx.getUserInfo({
+        success: function (res) {
+          app.globalData.userInfo = res.userInfo
+          var userInfo = res.userInfo
+          var nickName = userInfo.nickName
+          var avatarUrl = userInfo.avatarUrl         
+          that.setData({
+            userInfo: userInfo,
+            nickName: nickName
+          });
+        }
+      })      
+    }   
+    wx.getWeRunData({
+      success(res) {
+        const encryptedData = res.encryptedData;
+        console.log(res);
+        if (res.errMsg == 'getWeRunData:ok') {
+          that.decryptWeRun(res);
+        }
+      }
+    })
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+  //获取排名
+  getStepRank:function(){
+    var that = this;   
+    wx.getNetworkType({//获取网络连接状态,如果不为none则执行
+      success: function (res) {
+        //console.log(res.networkType)
+        if (res.networkType != "none") {
+          that.setData({
+            nonet: false
+          })
+          wx.showLoading({//显示加载中提示框
+            title: '获取排名中',
+          })
+          wx.request({
+            url: app.globalData.localUrl + '/Werun/getStepRank',
+            data: {
+              'openid':wx.getStorageSync('openid'),
+              'step':that.data.step,
+            },
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            method: 'POST',
+            success: function (res) {
+              console.log(res.data)
+              if (res.data.status== 0) {                
+                wx.showToast({
+                  title: '获取信息失败',
+                  icon: 'none',
+                })
+              } else {                
+                that.setData({                    
+                    list: res.data.superCount > 0 ?res.data.super:[],
+                    list1:res.data.normal,
+                    person_title:res.data.person_title,
+                    show1:res.data.superCount>0?true:0,
+                    selfRankInfo:res.data.selfRankInfo,
+                    monthList: res.data.monthList,
+                    rule:res.data.rule,
+                })
+              }
+            },
+            fail: function (error) {
+
+              that.setData({
+                nonet: true
+              })
+            }
+          })
+        } else {
+          that.setData({
+            nonet: true
+          })
+        }
+        wx.hideLoading()//隐藏加载中提示框
+      }
+    }) 
+  },
+  //解密运动数据
+  decryptWeRun:function(encryptedData){
+    var that = this;
+    app.getUserOpenidAndSessionKey(true);//重新获取session_key
+    wx.getNetworkType({//获取网络连接状态,如果不为none则执行
+      success: function (res) {
+        //console.log(res.networkType)
+        if (res.networkType != "none") {
+          that.setData({
+            nonet: false
+          })
+          wx.showLoading({//显示加载中提示框
+            title: '获取运动信息',
+          })
+          wx.request({
+            url: app.globalData.localUrl + '/Werun/weRun',
+            data: {
+              'encryptedData': encryptedData.encryptedData,
+              'iv':encryptedData.iv,
+              'openid': wx.getStorageSync('openid'),
+              'session_key':wx.getStorageSync('session_key'),
+            },
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            method:'POST',
+            success: function (res) {
+              console.log(res.data)
+              if (res.data <=0) {
+               wx.showToast({
+                  title: '获取信息失败',
+                  icon: 'none',
+                })
+                
+              } else {
+                that.setData({
+                  step:res.data.stepInfoList[30].step,
+                },function(){
+                  that.getStepRank();
+                })
+              }
+            },
+            fail: function (error) {
+
+              that.setData({
+                nonet: true
+              })
+            }
+          })
+        } else {
+          that.setData({
+            nonet: true
+          })
+        }
+        wx.hideLoading()//隐藏加载中提示框
+      }
+    }) 
+  },
+
+  //事件处理函数
+  bindViewTap: function () {
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
+  },
+
+  getUserInfo: function (e) {
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
+  },
+  // tab选项
+  tabList: function (e) {
+    var that = this;
+    that.setData({
+      currentTab: e.target.dataset.current
+    })
+  },
+  // 跳转到团队赛
+  toTeam: function () {
+    wx.redirectTo({
+      url: '../team/team',
+    })
+  },
+  /** 查看全部 */
+  show1:function(){
+    var that=this;
+    if(that.data.show1==0){
+    that.setData({
+      show1:1
+    })
+    }else{
+      that.setData({
+        show1: 0
+      })
+    }
+  },
+  /** 查看全部 */
+  show2:function(){
+    var that=this;
+    if (that.data.show2 == 0) {
+      that.setData({
+        show2: 1
+      })
+    } else {
+      that.setData({
+        show2: 0
+      })
+    }
+  },
+  //点赞
+  good:function(){
+    var that=this;
+    if(that.data.good){
+    that.setData({
+      good:false
+    })
+    }else{
+      that.setData({
+        good: true
+      })
+    }
+  }
+})

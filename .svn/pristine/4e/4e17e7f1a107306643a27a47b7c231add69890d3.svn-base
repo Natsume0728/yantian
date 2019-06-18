@@ -1,0 +1,38 @@
+<!--pages/bodyindex/index/index.wxml-->
+<view class='yt_container'>
+<!-- bannner  -->
+  <view class='monit_banner' bindtap='toBooking'><image src='../../../images/body_banner.png'></image></view>
+<!-- 预约 报告  -->
+  <view class='monit_my'>
+    <view class='my_book' bindtap='toMybooking'>
+      <image src='../../../images/booking.png'></image>
+      我的预约
+    </view>
+    <view class='my_report' bindtap='toMyreport' wx:if='{{userbind==true}}'>
+      <image src='../../../images/report.png'></image>
+      我的报告
+    </view>
+     <view class='my_report' bindtap='toUserBind' wx:if='{{userbind==false}}'>
+      <image src='../../../images/report.png'></image>
+      我的报告
+    </view>
+  </view>
+<!-- 常见问题  -->
+  <view class='monit_cont_head'>
+    <view class='m_titile'>常见问题</view>
+    <view class='m_more'  bindtap='toGetMore' data-typeid='140'>查看更多</view>
+  </view>
+  <view class='monit_cont' bindtap='seeDetail' data-id='{{item.id}}' wx:for='{{question}}' wx:key=''>
+    <view class='m_cont_head'><view class='line'></view>{{item.title}}</view>
+    <view class='m_cont'>{{item.des}}</view>
+  </view>
+<!-- 往年报告  -->
+  <view class='monit_cont_head'>
+    <view class='m_titile'>往年报告</view>
+    <view class='m_more' wx:if='{{show_more_r}}' bindtap='toGetMore' data-typeid='40'>查看更多</view>
+  </view>
+  <view class='monit_cont' bindtap='seeDetail' data-id='{{item.id}}' wx:for='{{report}}' wx:key=''>
+    <view class='m_cont_head'><view class='line'></view>{{item.title}}</view>
+    <view class='m_cont'>{{item.des}}</view>
+  </view>
+</view>

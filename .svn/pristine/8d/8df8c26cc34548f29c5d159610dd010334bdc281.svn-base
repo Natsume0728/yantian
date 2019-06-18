@@ -1,0 +1,221 @@
+App({
+
+  globalData: {
+    weRun:'',
+    userInfo: null,
+    openid: '',
+    requestUrl: 'https://yantian.iron-box.cn/newyantian',//请求的网址的前缀
+    localUrl: 'https://yantian.iron-box.cn/newyantian',    
+  },
+
+  onLaunch: function () {
+      var that=this;
+      //调用API从本地缓存中获取数据
+      var logs = wx.getStorageSync('logs') || []
+      logs.unshift(Date.now())
+      wx.setStorageSync('logs', logs)
+      this.getUserOpenidAndSessionKey()
+      //wx.setStorageSync('openid','efdfdfdfdfdfdf00');
+      console.log(wx.getStorageSync('openid'))
+      console.log(wx.getStorageSync('unionid'))
+      this.judgeAuthorized()    
+  },
+  getUserInfo: function (cb) {
+    var that = this
+    if (this.globalData.userInfo) {
+      typeof cb == "function" && cb(this.globalData.userInfo)
+    } else {
+      //调用登录接口
+      wx.getUserInfo({
+        withCredentials: false,
+        success: function (res) {
+          that.globalData.userInfo = res.userInfo
+          console.info("用户信息:" + that.globalData.userInfo.avatarUrl);
+          typeof cb == "function" && cb(that.globalData.userInfo)
+        }
+      })
+    }
+  },
+  getUserOpenidAndSessionKey: function (reGet=false) {//获得用户的openid和session_key
+    var that = this
+    //判断缓存是否已经存在用户的openid,如果存在则不再获取。不存在则获取
+    try {
+      var value = wx.getStorageSync('openid')
+       if (value && reGet==false) {
+        console.log("openid已缓存"+value)
+      } else {
+        wx.getNetworkType({//获取网络连接状态,如果不为none则执行
+          success: function (res) {
+            //console.log(res.networkType)
+            if (res.networkType != "none") {
+              wx.login({
+                success: function (res) {
+                  console.log(res);
+                  wx.request({//发送请求获得用户 openid
+                    url: that.globalData.requestUrl + '/Base/getOpenid',
+                    data: {
+                      js_code: res.code,
+                      grant_type: 'authorization_code'
+                    },
+                    method: 'GET',
+                    success: function (res) {
+                      console.log(res);                      
+                      console.log("获取到的openid:" + res.data.openid)                                            
+                      try {//将用户openid存入缓存
+                        wx.setStorageSync('openid', res.data.openid);
+                        wx.setStorageSync('unionid', res.data.unionid);
+
+                        if(reGet==true){
+                          that.globalData.weRun=1;
+                        }
+                        console.log(that.globalData);
+                        //wx.setStorageSync('session_key', res.data.session_key);
+                      } catch (e) {
+                        console.log("将用户openid存入缓存出错")
+                      }
+                    }
+                  })
+
+                }
+              })
+
+            } else {
+
+            }
+          }
+        })
+      }
+    } catch (e) {
+      // Do something when catch error
+    }
+  },
+  judgeAuthorized: function () {//判断用户是否已经授权登录
+    var that = this
+    wx.getSetting({
+      success: (res) => {
+        if (res.authSetting['scope.userInfo'] != true) {//如果用户没有授权
+          wx.getNetworkType({//获取网络连接状态,如果不为none则执行
+            success: function (res) {
+              console.log(res);
+              //console.log(res.networkType)
+              if (res.networkType != "none") {
+
+                wx.getUserInfo({
+                  withCredentials: false,
+                  success: function (data) {
+                    // console.info("2成功获取用户返回数据");
+                    console.log(data)
+                    // console.info("用户信息:" + data.userInfo.nickName + ' ' + data.userInfo.avatarUrl);              
+                   
+                    try {//将用户名,头像url存入缓存
+                      that.globalData.userInfo = res.userInfo;
+                      wx.setStorageSync('userinfo', data.userInfo)
+                    } catch (e) {
+                      console.log("将用户名,头像url存入缓存出错")
+                    }
+                    wx.request({//发送请求判断用户是否已经存在
+                      url: that.globalData.requestUrl + '/Base/add_wx_user_info',
+                      data: {
+                        openid: wx.getStorageSync('openid'),
+                        nickname: data.userInfo.nickName,
+                        headimgurl: data.userInfo.avatarUrl,
+                        sex:data.userInfo.gender,
+                        province:data.userInfo.province,
+                        city:data.userInfo.city,
+                      },
+                      method:'POST',
+                      header: {
+                        'content-type': 'application/x-www-form-urlencoded'
+                      },
+                      success: function (res) {                        
+                        //console.log(res.data)
+                        if (res.data ==true ) {                         
+                          console.log("保存用户信息成功")
+                        } else {
+                          console.log("保存用户信息失败")
+                        }
+                      }
+                    })
+
+                  }
+                })
+              } else {
+
+              }
+            }
+          })
+        }
+      }
+    })
+  },
+  openSetting: function () {//打开允许使用用户信息设置菜单
+    wx.openSetting({
+      success: function (data) {
+        if (data) {
+          if (data.authSetting["scope.userInfo"] == true) {//用户选择允许
+            wx.getUserInfo({//获取用户信息
+              withCredentials: false,
+              success: function (data) {
+                // console.info("openSetting成功获取用户返回数据"+data);
+                // console.info("用户信息:" + data.userInfo.nickName + ' ' + data.userInfo.avatarUrl);
+
+                try {//将用户名,头像url存入缓存
+                  wx.setStorageSync('userinfo', data.userInfo)
+                } catch (e) {
+                  console.log("将用户名,头像url存入缓存出错")
+                }
+
+                // try {//修改缓存里登录状态为true
+                //   wx.setStorageSync('loginStatus', true)
+                // } catch (e) {
+                //   console.log("修改缓存里登录状态为true出错")
+                // }
+
+                wx.request({//判断用户是否已存在
+                  url: that.globalData.requestUrl + '/Base/xcx_isExist_user',
+                  data: {
+                    openid: wx.getStorageSync('openid')
+                  },
+                  header: {
+                    'content-type': 'application/json'
+                  },
+                  success: function (res) {
+                    // console.log("用户信息是否存在:")
+                    // console.log(res.data)
+                    if (res.data == '不存在') {
+
+                      wx.request({
+                        url: that.globalData.requestUrl + '/Base/xcx_userinfo_save',
+                        data: {
+                          nickname: data.userInfo.nickName,
+                          headimgurl: data.userInfo.avatarUrl,
+                          openid: wx.getStorageSync('openid')
+                        },
+                        header: {
+                          'content-type': 'application/json'
+                        },
+                        success: function (res) {
+                          //console.log("插入用户信息是否成功:")
+                          //console.log(res.data)
+                        }
+                      })
+
+                    } else {
+                      console.log("用户已存在")
+                    }
+                  }
+                })
+              },
+              fail: function () {
+                console.info("2授权失败返回数据");
+              }
+            });
+          }
+        }
+      },
+      fail: function () {
+        console.info("设置失败返回数据");
+      }
+    })
+  }
+})

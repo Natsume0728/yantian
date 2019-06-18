@@ -1,0 +1,130 @@
+.yt_container{
+  padding: 48rpx 96rpx;
+  font-size:28rpx;
+}
+.bg_box{
+  position: relative;
+}
+.bg_box>image{
+  position: absolute;
+  width:100%;
+  height:100%;
+  z-index: 30;
+}
+.card_box{
+  position: relative;
+  z-index: 80;
+  padding: 70rpx 70rpx 120rpx;
+}
+/* 头像  */
+.card_box>.user_img{
+  margin-top: 60rpx;
+  
+}
+.card_box>.user_img>view{
+  position: relative;
+  margin: 0 auto;
+  width:30%;
+  border-radius: 50%;
+}
+.card_box>.user_img image:first-child{
+  width:210rpx;
+  height:210rpx;
+  position: absolute;
+  top:-38rpx;
+  left:-45rpx; 
+  z-index: 30;
+}
+.card_box>.user_img image:last-child{
+  width:120rpx;
+  height:120rpx;
+  border-radius: 50%;
+  position: relative;
+  z-index: 90;
+}
+/* 文字框  */
+.card_box>.card_text{
+  position: relative;
+  padding: 16rpx 24rpx;
+  color: #2f81d4;
+  font-size: 24rpx;
+  background-color: #e9f3fd;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  margin-top: -20rpx;
+  margin-bottom: 84rpx;
+  z-index: 80;
+}
+/* 评语等  */
+.card_box>.card_com{
+  font-family: "方正粗黑简体";
+  font-size: 32rpx;
+  color: #fff;
+  text-align: center;
+}
+.card_box>.card_com>view:last-child{
+  margin-bottom: 12rpx;
+}
+/* 称号  */
+.card_box>.card_title{
+  position: relative;
+  font-family: "方正粗黑简体";
+  font-size: 48rpx;
+  color: #fff;
+  text-align: center;
+  background-color: #2f81d4;
+  margin: 0 28rpx;
+  padding: 0;
+  text-shadow: rgba(121, 196, 251, 1);
+  border-radius: 20rpx;
+  margin-bottom: 12rpx;
+}
+.card_box>.card_title>text{
+  position: relative;
+   display: inline-block; 
+  z-index: 80;
+  padding: 12rpx 0 ;
+  margin: 10rpx;
+  height:80rpx;
+  line-height: 80rpx
+  
+}
+.card_box>.card_title>image{
+  position: absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index: 0;
+}
+.card_box>.card_time{
+  text-align: center;
+  font-size: 24rpx;
+  color: #fff;
+}
+/* 二维码  */
+.card_box>.code_pic{
+  text-align: center;
+  border-radius: 50%;
+  margin: 12rpx 0;
+  padding: 0;
+}
+.card_box>.code_pic>image{
+  width:120rpx;
+  height:120rpx;
+  border-radius: 50%;
+}
+/* 底部按钮  */
+.card_foot{
+ display: flex;
+ justify-content: space-between;
+ margin-top: 64rpx;
+}
+.card_foot>button{
+  width:240rpx;
+  margin: 0 10rpx;
+  font-size: 32rpx;
+  color: #fff;
+  background-color: #2f81d4;
+
+}

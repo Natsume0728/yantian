@@ -1,0 +1,31 @@
+<!--pages/report/report_card/report_card.wxml-->
+<view class='yt_container'>
+ <view class='bg_box'>
+  <image src='https://yantian.iron-box.cn/newyantian/Public/minImages/card_bg.png'></image>
+  <view class='card_box'>
+    <view class='user_img'>
+        <view>
+          <image src='../../../images/card_img_bg.png'></image>
+          <image src='../../../images/hu.jpg'></image>
+        </view>
+    </view>
+    <view class='card_text'>爱奇艺29日在美上市,交易代码为I</view>
+    <view class='card_com'>
+      <view>你比我厉害吗？</view>
+      <view>我在体质监测中获得称号</view>
+    </view>
+    <!-- 称号  -->
+    <view class='card_title'>
+      <image src='../../../images/card_title_bg.png'></image>
+       <text>矫健小能手</text>
+    </view>
+    <view class='card_com'>来pk吧！~</view>
+    <view class='code_pic'><image src='../../../images/ewm.jpg'></image></view>
+    <view class='card_time'>{{time}}</view>
+  </view>
+ </view>
+ <view class='card_foot'>
+    <button>保存到手机</button>
+    <button>分享</button>
+ </view>
+</view>

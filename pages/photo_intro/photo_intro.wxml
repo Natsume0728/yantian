@@ -1,0 +1,28 @@
+<!--pages/photo_intro/photo_intro.wxml-->
+<view class='yt_container'>
+  <view class='photo_box clearfix' bindtap='show' >
+  <image src='{{item.src}}' mode='aspectFill' wx:for='{{images}}' wx:key='' id='{{item.pic_id}}'></image>
+  <!-- <image src='../../images/ymq.jpg'></image>
+  <image src='../../images/ymq.jpg'></image>
+  <image src='../../images/ymq.jpg'></image>
+  <image src='../../images/ymq.jpg'></image>
+  <image src='../../images/ymq.jpg'></image>
+  <image src='../../images/ymq.jpg'></image>
+  <image src='../../images/ymq.jpg'></image>
+  <image src='../../images/ymq.jpg'></image>
+  <image src='../../images/ymq.jpg'></image>
+  <image src='../../images/ymq.jpg'></image>
+  <image src='../../images/ymq.jpg'></image> -->
+  </view>
+</view>
+ <!-- 遮罩层  -->
+  <view class='mask' hidden="{{flag}}" bindtap='show'>
+  <swiper current='{{big.pic_id}}' duration='50'>
+  <swiper-item wx:for='{{images}}'>
+  <view class='mask_box'>
+     <image src='{{item.src}}' mode='widthFix'></image>
+  </view> 
+  </swiper-item>
+  </swiper>
+  </view>
+

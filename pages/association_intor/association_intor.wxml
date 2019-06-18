@@ -1,0 +1,31 @@
+ <import src="../../wxParse/wxParse.wxml" /> 
+
+<!--pages/association_intor/association_intor.wxml-->
+<view class='banner'><image src='../../images/bg1.png' ></image></view>
+<view class='yt_container'>
+<!-- 场馆介绍  -->
+ <view class='ass_intro'>
+ <view class='intro_head'>{{intro.club_name}}</view>
+  <view class='intro_hot'><image src='../../images/hot.png'></image><text>{{intro.hot}}</text></view>
+  <view class="intro_cont {{showmore?'detail':''}}"><template is="wxParse" data="{{wxParseData:article.nodes}}" /></view>
+  <view class="more {{showmore?'img_res':''}}"> <image src='../../images/spread.png' bindtap='showMore'></image></view>
+  <view class='sign'><image src='{{intro.image}}'></image></view>
+ </view>
+ <!-- 加入我们  -->
+  <view class='join' bindtap='toJoinus' data-cid='{{intro.id}}'><image src='../../images/bg2.png'></image></view>
+ <!-- 协会相册  -->
+  <view class='title'wx:if='{{intro.atlas.thumb}}'> 协会相册</view>
+ <view class='ass_photo' wx:if='{{intro.atlas.thumb}}'>
+  <view class='photo_cont' bindtap="toPhotointr" data-cid='{{intro.id}}'>
+  <image wx:for='{{intro.atlas.five}}' wx:key='' wx:for-item="i" src='{{i}}'></image> 
+  </view>
+ </view>
+ <!-- 活动列表 -->
+ <view class='title' wx:if='{{activityList}}'>活动列表</view>
+ <view class='ass_act' wx:if='{{activityList}}' wx:for='{{activityList}}' wx:key=''>
+  <view class='act_cont' bindtap='toActintro' data-aid='{{item.id}}' >
+    <view class='cont_head'  ><text class='cont_icon'></text><text class='th'>{{item.title}}</text> <text class='t_time fr'>{{item.ac_start}}</text></view>
+    <view class='cont_cont'><text>{{item.short_des}}</text></view>
+  </view>
+ </view>
+</view>

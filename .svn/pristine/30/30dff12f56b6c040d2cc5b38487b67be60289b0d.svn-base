@@ -1,0 +1,58 @@
+/* 通用样式  */
+body{
+	padding: 0;
+	margin: 0;
+}
+.yt_container{
+	box-sizing:border-box;
+	padding: 48rpx;
+	width: 100%;
+	/* min-height: 800px; */
+	background-color: #fff;
+}
+.fl{float:left}
+.fr{float:right}
+.ta {
+  font-size:14px;
+  color:#bbb;
+}
+/* banner  */
+.yt_banner{
+	width: 100%;
+	height: 180rpx;
+}
+.yt_banner>image{
+	width: 100%;
+	height:100%;
+}
+.content{
+  box-sizing: border-box;
+  padding:36rpx 24rpx;
+	box-shadow: 4rpx 4rpx 4rpx 4rpx rgba(47,129,212,0.12);
+	/* height: 130px; */
+	width: 100%;
+  font-size: 30rpx;
+  margin-bottom: 64rpx;
+}
+/* 图标部分  */
+.sport{
+  
+  width:100%;
+  
+}
+.sport>.sport_pic{
+  box-sizing: border-box;
+  width:33.33%;
+  border:1rpx solid #cadef1;
+  text-align: center;
+  padding: 24rpx 0;
+  float:left;
+}
+.sport_pic image{
+  width:90rpx;
+  height:110rpx;
+}
+.sport_txt{
+  font-size: 32rpx;
+  color:#2f81d4;
+}

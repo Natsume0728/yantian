@@ -1,0 +1,16 @@
+<!--pages/activity/activity.wxml-->
+<view class='yt_container'>
+<view class='content' wx:for='{{list}}' wx:key='' bindtap='toActivityDetail'   data-id='{{item.act_id}}'>  
+      <view class='cont_head'>{{item.act_title}}</view>
+      <view class='cont_ct'>
+        <view class='v_icon' wx:if='{{item.act_address}}'>
+          <image src='../../images/list_Location.png' class='s_ad'></image>
+          <text>{{item.act_address}}</text>
+        </view>
+        <view class='v_icon' wx:if='{{item.act_begin_time>0}}'>
+          <image src='../../images/list_time.png' class='s_ad'></image>
+          <text>{{item.begin_time}}</text>
+        </view>
+      </view> 
+</view>
+</view>

@@ -1,0 +1,42 @@
+<view class='yt_container'>
+  <view class='yt_banner'>
+    <image src='../../images/title_1.png'></image>
+  </view>
+  <!-- 介绍部分  -->
+  <view class='content'>
+   <view> <text>体育文化发展中心的主要任务是指导。协助全各省（区、市）体育文化工作，弘扬体育主旋律，为社会主义物质文明、精神文明、政治文明服务。</text></view>
+
+    <view><text>体育文化发展中心的主要任务是指导。协助全各省（区、市）体育文化工作，弘扬体育主旋律，为社会主义物质文明、精神文明、政治文明服务。</text></view>
+
+  </view>
+  <view class='yt_banner'>
+    <image src='../../images/title_2.png'></image>
+  </view>
+  <!-- 图标部分  -->
+  <view class='sport'>
+    <view class='sport_pic'><image src='../../images/sport list_1.png'></image>
+      <view class='sport_txt'><text>乒乓球</text></view>
+    </view>
+    <view class='sport_pic' bindtap='toSports'><image src='../../images/sport list_2.png'></image>
+      <view class='sport_txt'><text>羽毛球</text></view>
+    </view>
+    <view class='sport_pic'><image src='../../images/sport list_3.png'></image>
+      <view class='sport_txt'><text>网球</text></view>
+    </view>
+    <view class='sport_pic'><image src='../../images/sport list_4.png'></image>
+      <view class='sport_txt'><text>足球</text></view>
+    </view>
+    <view class='sport_pic'><image src='../../images/sport list_5.png'></image>
+      <view class='sport_txt'><text>篮球（男）</text></view>
+    </view>
+    <view class='sport_pic'><image src='../../images/sport list_6.png'></image>
+      <view class='sport_txt'><text>排球</text></view>
+    </view>
+    <view class='sport_pic'><image src='../../images/sport list_7.png'></image>
+      <view class='sport_txt'><text>棒球</text></view>
+    </view>
+    <view class='sport_pic'><image src='../../images/sport list_8.png'></image>
+      <view class='sport_txt'><text>垒球</text></view>
+    </view>
+  </view>
+</view>

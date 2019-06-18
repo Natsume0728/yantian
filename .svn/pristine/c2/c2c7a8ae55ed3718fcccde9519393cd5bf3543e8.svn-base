@@ -1,0 +1,17 @@
+<!--pages/joinus/joinus.wxml-->
+<view class='banner'><image src='../../images/bg2.png' ></image></view>
+<view class='yt_container'>
+<!-- 招募规则  -->
+ <view class='ass_intro'>
+  <view class='intro_head'>招募规则</view>
+  <view class='intro_cont'>{{rule}}</view>
+ </view>
+ <form bindsubmit="formSubmit" bindreset="formReset">
+ <view class='ass_intro clearfix .cont'>
+   <view class='cont_inp clearfix'><text class='fl'>姓名</text><input class='fr' id="username" name='name' type="text" placeholder-class="psection" maxlength="20" placeholder='请填写联系人姓名'></input></view>
+   <view class='cont_inp clearfix'><text class='fl'>手机</text><input class='fr' name='tel' type="number" placeholder-class="psection" maxlength="11" placeholder='请填写联系人手机号'></input></view>
+   <view class='cont_inp claearfix'><text class='fl'>年龄</text><input class='fr' name='age' type="number" placeholder-class="psection" maxlength="3" placeholder='请填写联系人年龄'></input></view>
+ </view>
+<button formType='submit'>确认报名</button>
+</form>
+</view>

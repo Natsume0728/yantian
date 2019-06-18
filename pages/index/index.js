@@ -1,0 +1,87 @@
+//index.js
+//获取应用实例
+const app = getApp();
+Page({
+  data: {
+    noNetwork: false, //默认为有网络连接
+    openid:'',//用户的openid
+  },
+  onLoad: function () {
+    var that = this;
+    wx.getNetworkType({
+      success: function (res) {
+        if (res.networkType != "none") {
+          that.setData({
+            noNetwork: false
+          })
+
+          try {//获取用户的openid
+            var value = wx.getStorageSync('openid')
+            if (value) {
+              //console.log("获得openid:" + value)
+              that.data.openid = value
+            }
+          } catch (e) {
+            console.log("从缓存中获取openid失败")
+          }
+        }
+      },
+    })
+  },
+  toAssoci: function(){
+    wx.navigateTo({
+      url: '../association_list/association_list',
+    })
+  },
+  toTrain: function(){
+    wx.navigateTo({
+      url: '/pages/tran_index/tran_index',
+    })
+  },
+  toQuery: function(){
+    wx.navigateTo({
+      url: '../place/placelist/placelist',
+    })
+  },
+  toMonitor: function(e){
+    wx.navigateTo({
+      url: '../bodyindex/index/index',
+    })
+  },
+  repair: function (e) {
+    wx.navigateTo({
+      url: '../bodyindex/booking/booking',
+    })
+  },
+  toMarathon:function(){
+    wx.navigateTo({
+      url: '../marathon/personal/personal',
+    })
+  },
+  toBooking: function () {
+    wx.showToast({
+      title: '敬请期待',
+      icon: 'none',
+      duration: 1000
+    })
+  },
+  /**
+  * 用户点击右上角分享
+  */
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '盐田体育通',
+      path: '/pages/index/index',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }  
+  },
+})

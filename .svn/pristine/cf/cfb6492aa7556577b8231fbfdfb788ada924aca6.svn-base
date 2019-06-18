@@ -1,0 +1,58 @@
+<!--pages/actdetails/mysign/mysign.wxml-->
+<view class='yt_container'>
+<view class='content'  wx:for='{{list}}' wx:key='' wx:if='{{list.length>0}}'> 
+   <view class='cont_head' bindtap="toActivityDetail" data-act_id='{{item.act_id}}'>{{item.act_title}}</view>
+    <view class='cont_ct' bindtap="toActivityDetail" data-act_id='{{item.act_id}}'>
+      <view class='v_icon'>
+        <image src='../../images/list_Location.png' class='s_ad'></image>
+        <text>{{item.act_address}}</text>
+      </view>
+      <view class='v_icon'>
+        <image src='../../images/list_time.png' class='s_ad'></image>
+        <text>{{item.act_begin_time}}</text>
+      </view>
+    </view>   
+      <view class='now' wx:if='{{item.is_on==1}}'>正在进行中</view>
+      <view class='now' wx:if='{{item.is_on==0}}'>已结束</view>
+      <button class='del' wx:if='{{item.is_cancel==1 && item.is_on==0}}' bindtap='delAct' data-orders_id='{{item.orders_id}}'>删除</button>
+      <button class='del' wx:if='{{item.is_cancel==1}}' data-orders_id='{{item.orders_id}}'>已取消</button>
+      <button class='del' wx:if='{{item.is_on==0&&item.is_cancel==0}}' data-orders_id='{{item.orders_id}}'>已完成</button>
+      <button class='del' wx:if='{{item.is_on==1&&item.is_cancel==0}}' bindtap='cancelSign' data-orders_id='{{item.orders_id}}'>取消报名</button>
+</view>
+<!-- <view class='content' bindtap="toActivityDetail">
+   <view class='cont_head'>2017-2018女子羽毛球超级联赛</view>
+      <view class='cont_ct'>
+        <view class='v_icon'>
+          <image src='../../images/list_Location.png' class='s_ad'></image>
+          <text>盐田体育中心</text>
+        </view>
+        <view class='v_icon'>
+          <image src='../../images/list_time.png' class='s_ad'></image>
+          <text>2017-10-12</text>
+        </view>
+      </view>
+      <view class='now'>活动已结束</view>
+      <button class='del' bindtap='delAct'>删除</button>
+</view> -->
+<view else class='empty'>
+  <image src='../../images/empty-state.png'></image>
+  <view>您还没有报名记录，先去报名参加活动吧~</view>
+</view>
+</view>
+<!--底部部分  -->
+<view class='foot'>
+  <view class='foot_box'>
+    <view class='fl' bindtap='toAct'>
+      <view>
+        <image src='../../images/tab_bar_activity_selected.png'></image>
+      </view>
+      <text >活动培训</text>
+    </view>
+    <view class='fr' bindtap='toMysign'>
+      <view>
+        <image src='../../images/tab_bar_self_select.png'></image>
+      </view>
+      <text class='opt'>我的报名</text>
+    </view>
+  </view>
+</view>

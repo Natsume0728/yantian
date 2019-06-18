@@ -1,0 +1,22 @@
+/* pages/index/userBind/userBind.wxss */
+@import"../../../wxParse/wxParse.wxss";
+@import '../booking/booking';
+.bk_banner{
+  position: absolute;
+  width:100%;
+  height:240rpx;
+}
+.bk_infor>.bk_inp.bk1>text{
+  color:#2f81d4;
+  margin-right: 96rpx;   
+}
+.bk_infor>.bk_inp.bk2>text{
+  color:#2f81d4;
+  margin-right: 38rpx;   
+}
+.date{
+  width:44rpx;
+  height:44rpx;
+  margin-left: 28rpx;
+  align-self: center;
+}

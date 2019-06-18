@@ -1,0 +1,45 @@
+/*@import"../../../wxParse/wxParse.wxss";*/
+.yt_container{
+  position: relative;
+}
+.content{
+  box-sizing: border-box;
+  padding:48rpx;
+	box-shadow: 4rpx 4rpx 4rpx 4rpx rgba(47,129,212,0.12) ;
+	width: 100%;
+  padding-top: 65rpx;
+  margin-top: 100rpx;
+  
+}
+.cont_h{
+  font-size: 32rpx;
+  color:#333;
+  font-weight: 600;
+  text-align: center;
+}
+.cont_h .coach_k{
+  margin-left: 24rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+.cont_c{
+  width:100%;
+  margin-top: 64rpx;
+  font-size: 24rpx;
+  color:#333;
+  line-height: 44rpx;
+}
+.coach_img{
+  position: absolute;
+  border-radius:50%;
+  width:150rpx;
+  height:150rpx;
+  top: 48rpx;
+  left:288rpx;
+  box-shadow: 4rpx 4rpx 4rpx 4rpx rgba(47,129,212,0.12) ;
+}
+.coach_img>image{
+  width:100%;
+  height:100%;
+  border-radius: 50%;
+}

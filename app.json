@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/association_list/association_list",
+    "pages/photo_intro/photo_intro",
+    "pages/association_intor/association_intor",
+    "pages/joinus/joinus",
+    "pages/act_intro/act_intro",
+	
+	"pages/place/placelist/placelist",
+    "pages/place/place_intro/place_intro",    
+    "pages/personnel/sport_teams/sport_teams",
+    "pages/personnel/teams/teams",    
+    "pages/personnel/coach/coach",
+    "pages/repair/repair/repair",
+	
+	"pages/tran_index/tran_index",
+    "pages/traindetail/traindetail",
+    "pages/traininglist/traininglist",
+    "pages/sportintro/sportintro",    
+    "pages/sports/sports",
+    "pages/actdetails/actdetails",
+    "pages/activitylist/activitylist",
+    "pages/activity_apply/activity_apply",
+    "pages/mysign/mysign",        
+    
+    "pages/bodyindex/index/index",     
+    "pages/bodyindex/recom_read/recom_read",
+    "pages/bodyindex/report_detail/report_detail", 
+    "pages/bodyindex/my_appoint/my_appoint",    
+    "pages/bodyindex/booking/booking",      
+    "pages/bodyindex/userBind/userBind",      
+    "pages/bodyindex/my_report/my_report",
+    "pages/bodyindex/my_report_detail/my_report_detail",
+    "pages/bodyindex/report_card/report_card",
+	
+	"pages/marathon/personal/personal",
+	"pages/marathon/team/team",
+	
+    "pages/logs/logs"
+  ],
+  "window": {
+    "enablePullDownRefresh":false,
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "盐田体育通",
+    "navigationBarTextStyle": "black"
+  }
+}

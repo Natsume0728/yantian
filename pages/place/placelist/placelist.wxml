@@ -1,0 +1,27 @@
+<!--pages/place/placelist/placelist.wxml-->
+<view class='yt_container'>
+  <view class='place_title clearfix'>
+    <view class="comn fl {{typeid==69?'now':''}}" data-typeid='69' bindtap='switchNow'>公共场所</view>
+    <view class="comn fr {{typeid==68?'now':''}}" data-typeid='68' bindtap='switchNow'>便民设施</view>
+  </view>
+  <!-- 场所列表  -->
+  <view class='place_list clearfix' wx:for='{{faciList}}' wx:key='' bindtap='toPlaceintro' data-faciid='{{item.id}}'>
+    <view class='tran_pic  '>
+        <image src='{{item.logo}}' mode='scaleToFill'></image>
+    </view>
+    <view class='list_r '>
+      <view class='list_head'>{{item.name}}</view>
+      <view class='list_cont clearfix'>
+        <view class='tans_txt clearfix'>
+          <image class='fl' src='../../../images/list_Location.png'></image>
+          <view class='fl text_box'><text>{{item.address}}</text></view>
+        </view>
+        <view class='infor'>
+          <image class='phone fl' src='../../../images/list_phone.png' wx:if='{{item.tel}}'></image>{{item.tel}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 场所列表  -->
+</view>
+<!--底部部分   flex布局-->
+<include src="../../place/placelist/placefooter.wxml" />

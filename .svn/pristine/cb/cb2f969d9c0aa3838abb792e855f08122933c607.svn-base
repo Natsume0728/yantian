@@ -1,0 +1,46 @@
+<view class='yt_container'>
+  <form bindsubmit='formSubmit'>
+    <view class='content'>
+      <view><view class='now duiyuan' wx:if='{{info.leader}}'>领队</view></view>
+      <view class='cont_inp clearfix' wx:for='{{info.leader}}' wx:key=''>
+        <text class='fl' for="username">{{item.info_name}}</text>
+        <radio-group name="{{item.field_code}}_{{index}}" wx:if='{{item.field_type=="radio"}}'>
+          <label wx:for='{{item.options}}' wx:for-item='sex' wx:key=''>
+            <radio value="{{sex}}" />{{sex}}</label>
+        </radio-group>
+        <picker wx:elif='{{item.field_type=="select"}}' bindchange='pickerSelect' value='{{index}}' range='{{item.options}}' data-field_code='{{item.field_code}}'>
+          <input class='fr' placeholder='请选择'></input>
+          <input name='{{item.field_code}}' hidden value='{{}}' placeholder='请选择'></input>
+        </picker>
+        <textarea wx:elif='{{item.field_type=="textarea"}}' class='fr' name='{{item.info_code}}' value='' type="text" placeholder-class="psection" placeholder='请输入'></textarea>
+        <input wx:else class='fr' auto-focus='true' name='{{item.field_code}}' type="text" placeholder-class="psection" maxlength="{{item.maxlength==0?20:18}}" placeholder='{{item.placeholder}}'></input>
+      </view>
+      <block wx:for='{{info.team_limit_array}}' wx:key='' wx:for-item='num_array'>
+        <view class='now duiyuan'>队员{{num_array}}</view>
+        <view class='cont_inp clearfix' wx:for='{{info.team}}' wx:key=''>
+          <text class='fl' for="username">{{item.info_name}}</text>
+          <radio-group name="{{item.field_code}}_{{num_array}}" wx:if='{{item.field_type=="radio"}}'>
+            <label wx:for='{{item.options}}' wx:for-item='sex' wx:key=''>
+              <radio value="{{sex}}" />{{sex}}</label>
+          </radio-group>
+          <picker wx:elif='{{item.field_type=="select"}}' bindchange='pickerSelect' value='{{index}}' range='{{item.options}}' data-field_code='{{item.field_code}}'>
+            <input class='fr' placeholder='请选择'></input>
+            <input name='{{item.field_code}}_{{num_array}}' hidden value='{{}}' placeholder='请选择'></input>
+          </picker>
+          <textarea wx:elif='{{item.field_type=="textarea"}}' class='fr' name='{{item.info_code}}' value='' type="text" placeholder-class="psection" placeholder='请输入'></textarea>
+          <input wx:else class='fr' id='{{item.info_id}}' name='{{item.field_code}}_{{num_array}}' type="text" placeholder-class="psection" maxlength="{{item.maxlength==0?18:item.maxlength}}" placeholder='{{item.placeholder}}'></input>
+        </view>
+      </block>
+    </view>
+    <view class='content2' wx:for='{{info.image}}' wx:for-index='idx' wx:key=''>
+      <view><view class='now2'>{{item.info_name}}</view></view>
+      <view class='addimg' wx:if="{{imglist[idx]}}" wx:for='{{imglist[idx]}}' wx:key='' wx:for-item='img'>
+        <image src='{{img}}'></image>
+        <view class='del' bindtap='delimg' data-idx='{{idx}}' data-index='{{index}}'><image src='../../images/img_cancel.png' ></image></view>
+      </view>
+      <view class='add clearfix' bindtap='uploadimg' data-index='{{idx}}'>+</view>
+      <textarea name='{{item.field_code}}' maxlength='-1' style='display:none' value='{{json_imglist[idx]}}'></textarea>
+    </view>
+    <button form-type='submit'>提交</button>
+  </form>
+</view>

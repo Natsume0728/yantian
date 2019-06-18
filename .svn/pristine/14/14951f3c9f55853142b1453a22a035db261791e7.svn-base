@@ -1,0 +1,60 @@
+<!--pages/index/userBind/userBind.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+<view class='bk_banner'>
+  <image src='../../../images/bodycheck.jpg'></image>
+</view>
+<view class='yt_container'>
+  <!-- 查询须知  -->
+  <view class='bk_book'>
+    <view class='bk_title'>查询须知</view>
+    <view class='bk_cont'><template is="wxParse" data="{{wxParseData:article.nodes}}" /></view>
+    <!-- 圆圈  -->
+    <view class='dot_box'>
+      <view class='dot'>
+        <view class='att'></view>
+      </view>
+      <view class='dot'>
+        <view class='att'></view>
+      </view>
+
+    </view>
+  </view>
+  <!-- 预约信息填写  默认-->
+  <form bindsubmit='formSubmit' bindreset='formReset'>
+    <view class='bk_infor'>
+      <view class='dot_box'>
+        <view class='dot'></view>
+        <view class='dot'></view>
+      </view>
+      <view class='bk_inp bk1'>
+        <text>姓名</text>
+        <input placeholder-class='pc' name='name' placeholder='请输入姓名'></input>
+      </view>
+      <view class='bk_inp bk2'>
+        <text>出生日期</text>        
+        <input disabled='true' name='born' value='{{born}}' placeholder-class='pc' placeholder='点击图标选择'></input> <picker mode='date' start='' value='{{born}}' bindchange="calendarClick"><image class= 'date' src='../../../images/date.png'></image></picker>       
+      </view>
+      <view class='bk_inp2'>性别
+        <text class="{{gender=='男'?'gender':''}}" data-clicked='男' bindtap='clicked'>男</text>
+        <text class="{{gender=='女'?'gender':''}}" data-clicked='女' bindtap='clicked'>女</text>
+        <input name='gender' value='{{gender}}' hidden></input>
+      </view>
+      <!-- 圆圈  -->
+      <view class='dot_box'>
+        <view class='dot'>
+          <view class='att'></view>
+        </view>
+        <view class='dot'>
+          <view class='att'></view>
+        </view>
+      </view>
+    </view>
+    <!--提交  -->
+    <view>
+      <!-- 圆圈  -->
+      <button class="write" bindtap='Submit' formType='submit'>       
+        确认提交
+      </button>
+    </view>
+  </form>
+</view>

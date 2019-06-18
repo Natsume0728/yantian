@@ -1,0 +1,28 @@
+<!--pages/actdetails/actdetails.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class='yt_container'>
+  <view class='content' bindtap="toActDetails">
+    <view class='cont_head'>{{detail.act_title}}</view>
+    <view class='cont_ct'>
+      <view class='v_icon' wx:if='{{detail.act_address}}'>
+        <image src='../../images/list_Location.png' class='s_ad'></image>
+        <text>{{detail.act_address}}</text>
+      </view>
+      <view class='v_icon' wx:if='{{detail.act_begin_time}}'>
+        <image src='../../images/list_time.png' class='s_ad'></image>
+        <text>{{detail.act_begin_time}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='content'>
+    <view class='cont_c'>
+      <view>
+       <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      </view>
+    </view>
+  </view>
+  <view class='btn'>
+    <button class='sign' wx:if='{{detail.show_status==3}}' bindtap="toApply" data-id='{{detail.act_id}}'>报名</button>
+    <button class='over' wx:else  data-id='{{detail.act_id}}'>{{detail.show_msg}}</button>
+  </view>
+</view>

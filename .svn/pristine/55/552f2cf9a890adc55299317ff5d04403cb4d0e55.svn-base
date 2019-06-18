@@ -1,0 +1,70 @@
+/* pages/bodyindex/my_appoint/my_appoint.wxss */
+/* 预约tab  */
+.yt_container{
+  font-size: 28rpx;
+}
+.app_tab{
+  display: flex;
+  justify-content: flex-start;
+  font-size: 32rpx;
+  margin-bottom: 12rpx;
+}
+.normal{
+  margin-left: 36rpx;
+  padding: 8rpx 12rpx;
+}
+.app_tab>.app_now{
+  box-sizing: border-box;
+  color:#fff;
+  background-color: #2f81d4;
+  border-radius: 40rpx;
+}
+/* 用户  */
+.user_name {
+  margin-top: 36rpx;
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #333;
+  padding: 24rpx;
+  box-shadow: 0rpx 2rpx 4rpx 4rpx rgba(47,129,212,0.12);
+}
+/* 信息部分  */
+.app_cont{
+  box-shadow: 0rpx 2rpx 4rpx 4rpx rgba(47,129,212,0.12);
+  padding: 36rpx 24rpx;
+}
+.app_cont>.infor{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+}
+.app_cont>.infor>.items{
+  color:#333;
+}
+.app_cont>.infor>.user_infors{
+  color:#2f81d4;
+}
+.app_cont>.infor:last-child{
+  justify-content: flex-end;
+}
+.app_cont>.infor>.app_cancel{
+  color:#999;
+  border: 1rpx solid #999;
+  border-radius: 48rpx;
+  padding: 8rpx 24rpx;
+  margin-top: 24rpx;
+}
+/*  空 */
+.empty{
+  width:100%;
+  margin-top: 188rpx;
+  text-align: center;
+}
+.empty>image{
+  width:350rpx;
+  height:200rpx;
+  margin-bottom: 84rpx;
+}
+.empty>.tips{
+  color:#2f81d4;
+}

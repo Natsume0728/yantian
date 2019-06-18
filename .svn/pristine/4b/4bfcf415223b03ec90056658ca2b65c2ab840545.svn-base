@@ -1,0 +1,435 @@
+/**app.wxss**/
+page{
+  width:100%;
+  height:100%;
+}
+/* 背景图  */
+.bg_pic{
+  position: fixed;
+  top: 0;
+  left:0;
+  right: 0;
+  width:100%;
+  height:100%;
+}
+.bg_pic>image{
+  width:100%;
+  height:100%;
+}
+/* 跑步人物 */
+.run{
+  position: absolute;
+  top: 55rpx;
+  left: 0rpx;
+  width:200rpx;
+  height: 300rpx;
+  z-index: 50;
+}
+/* 切换赛事  */
+.choice{
+  position: absolute;
+  top:116rpx;
+  right: 40rpx;
+  width:180rpx;
+  height: 250rpx;
+}
+.container{
+  font-size: 28rpx;
+  position:relative;
+  top: 250rpx;
+  left:0;
+  right:0;
+  bottom: 0rpx;
+  padding: 0 24rpx 0;
+  overflow: hidden;
+  width: 100%;
+  /* height: 100%; */
+  box-sizing: border-box;
+  
+}
+/* 榜单  */
+.list{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 24rpx;
+  font-weight: 800;
+  color: #333;
+  box-sizing: border-box;
+  position: relative;
+}
+.list>.list_item{
+  width:124rpx;
+  height:66rpx;
+  padding: 16rpx 0rpx 8rpx;
+  border-radius: 16rpx 16rpx 0 0;
+  background-color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  border-bottom:4rpx solid #4b4b4b
+}
+.list>.list_item:last-child{
+  width:180rpx;
+}
+.list>.list_item.current{
+  font-size: 32rpx;
+  color:#ff5a5a;
+  padding: 8rpx 0rpx 8rpx;
+  border:4rpx solid #4b4b4b;
+  border-bottom: 4rpx solid #fff;
+   z-index: 100; 
+}
+/* 榜单内容 */
+.list_cont{
+  position: relative;
+  box-sizing: border-box !important;
+  border:4rpx solid #4b4b4b;
+  border-radius: 10rpx;
+  margin-top: -4rpx;
+  background-color: #fff;
+  padding: 0 28rpx 0 ;
+  margin-bottom: 24rpx;
+  height: 845rpx;
+  /* z-index: 80; */
+}
+.fl{float:left}
+.fr{float:right}
+.clearfix::after {
+    content: ".";
+    clear: both;
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    height: 0;
+}
+.clearfix {
+    zoom: 1;
+}
+ /* 滚动条 */
+  ::-webkit-scrollbar{
+    width:0;
+    height:0;
+    color: transparent;
+  }
+.yt_container{
+	box-sizing:border-box;
+	padding: 48rpx;
+	width: 100%;
+	background-color: #fff; 
+	font-family: PingFangSC-Regular, sans-serif;
+    font-size: 28rpx;
+}
+
+
+/**index.wxss**/
+/* 日榜  */
+.dayList{
+  padding-top: 36rpx !important;
+}
+.content{
+  height:105rpx;
+  /* line-height: 105rpx; */
+  display: flex;
+  justify-content: space-between;
+  border:4rpx solid #4b4b4b;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 12rpx 0;
+}
+.top_cont{
+  margin-top: 36rpx;
+}
+.content>.user{
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 84rpx;
+}
+.user>.user_infor{
+  /* border: 1rpx red solid ; */
+  margin-left: 8rpx;
+}
+.user>.user_img{
+  width:60rpx;
+  height:60rpx;
+  align-self: center;
+}
+.user>.user_infor>.user_name{
+  font-size: 32rpx;
+
+}
+.user>.user_infor>.user_rank{
+  color:#999;
+}
+.user_img{
+  margin-right: 8rx;
+  border-radius: 50%;
+}
+/* 步数和点赞  */
+.content>.u_data{
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+  margin-right: 29rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.content>.u_data>.step{
+  align-self: center;
+  margin-right: 50rpx;
+  color:#2d984d;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+#step_less{
+  color:green;
+}
+.content>.u_data>.like image{
+  width:44rpx;
+  height:44rpx;
+}
+/* 队名  */
+.team{
+  margin-top: 48rpx;
+
+}
+.team_head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.team_head .name_box{
+  position: relative;
+}
+.team_head .team_name{
+   height:48rpx; 
+   width:150rpx;
+   line-height: 48rpx;
+  text-align: center;
+   box-sizing: border-box;
+   border:4rpx solid #4b4b4b; 
+   border-right: none;
+   border-bottom: none; 
+   font-weight: 700;
+   z-index: 100;
+   position: relative;
+   
+}
+.team_head>.seeMore{
+  font-size: 24rpx;
+  margin-right: 6rpx;
+}
+/* 特有样式  */
+.team >.content{
+  margin-bottom: 12rpx;
+}
+.team >.content>.user{
+  margin-left: 28rpx;
+}
+.team>.content>.u_data>.step{
+  color:#ff6666;
+} 
+.team >.content>.user>.num{
+  width:40rpx;
+  height:32rpx;
+  background-color: #86c99a;
+  border-radius: 15rpx 15rpx 15rpx 0;
+  color: #fff;
+  text-align: center;
+  line-height: 32rpx;
+  align-self: center;
+  margin-right: 24rpx; 
+}
+.team >.content>.user>.user_infor{
+  align-self: center;
+}
+/* 跑不死显示两个  */
+.runMost{
+  height:268rpx;
+  overflow: hidden;
+}
+.runear{
+  height:396rpx;
+  overflow: hidden;
+}
+/* 月榜  */
+/* 前三甲  */
+.title{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 76rpx;
+  margin-bottom: 88rpx;
+}
+.title>.rank{
+ text-align: center;
+  width: 33.33%;
+  border:4rpx solid #4b4b4b; 
+}
+.title>.rank:first-child{
+  border-right: none;
+}
+.title>.rank:last-child{
+  border-left: none;
+}
+.title>.rank>.rank_num{
+  width:40rpx;
+  height:32rpx;
+  background-color: #8f91d5;
+  border-radius: 15rpx 15rpx 15rpx 0;
+  color: #fff;
+  text-align: center;
+  line-height: 32rpx;
+  margin: -18rpx auto 12rpx;
+  
+}
+.title>.rank>.user_img{
+  border-radius: 50%;
+  margin-bottom: 12rpx;
+}
+.title>.rank>.user_img>image{
+  width:64rpx;
+  height:64rpx;
+  border-radius: 50%;
+}
+.title>.rank>.user_name{
+  margin-bottom: 24rpx;
+
+}
+.title>.rank>.step{
+  font-size: 24rpx;
+}
+.title>.rank>.step_num>text{
+  color: #11a1ff;
+}
+/* 称号  */
+.title>.rank>.title_name{
+  position: relative;
+  text-align: center;
+  z-index: 100;
+  width: 180rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 0 auto -40rpx;
+}
+.title>.rank>.title_name>text{
+  position: relative;
+  z-index: 100;
+  display: block;
+  width:100%;
+  height:100%;
+  font-size: 26rpx;
+  color: #626ed1;
+  font-family: "思源黑" ;
+}
+.title>.rank>.title_name>image{
+  width: 180rpx;
+  height: 80rpx;
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+}
+/* 第二名样式  */
+
+/* 第一名样式  */
+.rank.rank1 .rank_num{
+  background-color:#ff8080;
+}
+.rank.rank1{
+  position: relative;
+  margin-top: -40rpx;
+}
+.rank.rank1>.user_img1{
+  border-radius: 50%;
+  margin-bottom: 12rpx;
+}
+.rank.rank1>.user_img>image{
+  width:88rpx;
+  height:88rpx;
+  border-radius: 50%;
+}
+.rank.rank1>.title_name1{
+ width:240rpx;
+ height:100rpx;
+ line-height: 100rpx;
+ position: absolute;
+ text-align: center;
+ z-index: 100;
+ /* margin: 0 auto -80rpx -12rpx; */
+ bottom: -48rpx;
+ left: -10rpx;
+}
+.rank.rank1>.title_name1>text{
+ font-size: 32rpx ;
+ color:#ff5a5a;
+  position: relative;
+  z-index: 100;
+  display: block;
+  width:100%;
+  height:100%;
+ 
+}
+.rank.rank1>.title_name1>image{
+ width:240rpx;
+ height:100rpx;
+ position: absolute;
+  top:0;
+  left:-6rpx;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+}
+/* 第三名样式  */
+.rank.rank3 .rank_num{
+  background-color:#59aed1;
+}
+.rank.rank3>.title_name>text{
+ color:#1797ce;
+}
+/* 3名以后  */
+.u_data>.steps{
+  font-size: 24rpx;
+  color: #333;
+  margin-right: 12rpx;
+}
+.u_data>.total{
+  font-size: 24rpx;
+  color: #333;
+}
+.u_data>.total>text{
+  font-size: 28rpx;
+  color: #11a1ff;
+ }
+ /* 三角形  */
+ .triangle{
+   height: 0;
+   border-right: 20rpx solid transparent;
+   border-top: 48rpx solid transparent;
+   border-bottom: -4rpx solid transparent;
+   border-left: 40rpx solid #000;
+   position: absolute;
+   bottom: 0;
+   right: -58rpx;
+ }
+  .triangle2{
+   height: 0;
+   border-right: 20rpx solid transparent;
+   border-top: 49rpx solid transparent;
+   border-bottom: -4rpx solid transparent;
+   border-left: 40rpx solid #fff;
+   position: absolute;
+   bottom: 0;
+   right: -54rpx;
+ } 
+/* 上榜规则  */
+.rule{
+   box-sizing: border-box;
+   border:4rpx solid #4b4b4b; 
+   padding: 40rpx 28rpx;
+}
+.rule>.rule_tit{
+  font-size: 32rpx; 
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 36rpx;
+}

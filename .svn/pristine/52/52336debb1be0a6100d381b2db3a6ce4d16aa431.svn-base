@@ -1,0 +1,23 @@
+
+<!--pages/act_intro/act_intro.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class='yt_container'>
+  <view class='act_head'>{{act.title}}</view>
+  <view class='act_time'>{{act.ac_start}}</view>
+  <view class='act_intr'>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  <!-- <view class='act_pic' wx:if='{{act.image}}'>
+    <image src='{{act.image}}'></image>
+  </view> -->
+  <view class='act_cont'></view>
+  <view class='act_foot'>
+    <view bindtap='prevAct'  data-prevaid='{{act.prevAid}}'><view wx:if='{{act.prevAid}}'>上一篇</view></view>
+    <view class='mid'>
+      <image src='../../images/good_select.png' wx:if="{{clicked}}" bindtap='switchLike'></image>
+      <image src='../../images/good_unselected.png' wx:else bindtap='switchLike'></image>
+      {{likes}}
+    </view>
+    <view bindtap='nextAct' data-nextaid='{{act.nextAid}}'><view wx:if='{{act.nextAid}}'>下一篇</view></view>
+  </view>
+</view>

@@ -1,0 +1,28 @@
+<!--pages/association_list/association_list.wxml-->
+<view class='yt_container'>
+ <view class='ass_title clearfix'>
+ <view class="comn fl {{nowtab==0?'now':''}}" data-now='0' bindtap='switchNow' >最热社团</view>
+ <view class="comn fr {{nowtab==1?'now':''}}" data-now='1' bindtap='switchNow' >最新社团</view>
+ </view>
+ <!--swiper  -->
+ <swiper current="{{nowtab}}" class="swiper-box" duration="300" style="height:{{winHeight+18}}px" bindchange="bindChange"> 
+ <swiper-item>
+ <!-- 最热社团  -->
+    <view class='ass_list' bindtap='toAssintro' wx:for='{{hotList}}' wx:key='' id='{{item.id}}'>
+      <view class='list_head'>{{item.club_name}}</view>
+      <view class='list_time'>入驻日期：<text>{{item.addtime}}</text></view>
+      <view class='hot'> <image src='../../images/hot.png'></image><text>{{item.hot}}</text></view>
+      <view class='sign'><image src='{{item.image}}'></image></view>
+    </view>
+  </swiper-item>
+  <swiper-item>
+ <!-- 最新社团  -->
+    <view class='ass_list' bindtap='toAssintro' wx:for='{{newList}}' wx:key='' id='{{item.id}}'>
+      <view class='list_head'>{{item.club_name}}</view>
+      <view class='list_time'>入驻日期：<text>{{item.addtime}}</text></view>
+      <view class='hot'> <image src='../../images/hot.png'></image><text>{{item.hot}}</text></view>
+      <view class='sign'><image src='{{item.image}}'></image></view>
+    </view>
+  </swiper-item>
+  </swiper>
+</view>

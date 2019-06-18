@@ -1,0 +1,241 @@
+/* pages/team/team.wxss */
+@import "../personal/personal";
+.list>.list_item:first-child{
+  width:180rpx;
+}
+.list>.list_item:last-child{
+  width:124rpx;
+}
+/* 日榜  */
+.content>.user{
+  margin-left:30rpx;
+}
+.team>.content .user_name{
+  font-size: 24rpx;
+}
+.team>.content>.u_data>.step,
+.content>.u_data>.step{
+  color: #333;
+}
+/*月榜  */
+.rank.rank1>.title_name1>text{
+  font-size: 28rpx;
+}
+.title>.rank>.title_name>text,
+.rank.rank1>.title_name1>text{
+  font-size: 24rpx;
+  left: 4rpx;
+}
+ .rank.rank1>.title_name1{
+ width:208rpx;
+ height:100rpx;
+ line-height: 100rpx;
+ position: absolute;
+ text-align: center;
+ z-index: 100;
+ bottom: -48rpx;
+ left: -2rpx;
+ }  
+/* 我的队伍  */
+.myteam{
+  box-sizing: border-box;
+  padding-top: 56rpx;
+}
+.user>.user_infor{
+  font-size: 28rpx;
+}
+.user>.user_infor>.user_rank{
+  font-size: 20rpx;
+}
+/* 按钮图片  */
+.button{
+  width:118rpx;
+  height: 43rpx;
+}
+.button2{
+  width:166rpx;
+  height: 55rpx;
+}
+.u_data>.button:first-child{
+  margin-right: 12rpx;
+}
+/* 没有队伍 首页 */
+.tips{
+  margin: 0 auto 36rpx;
+  text-align: center;
+}
+.btn_box{
+  margin-bottom: 64rpx;
+  text-align: center;
+}
+.button2:first-child{
+  margin-right: 48rpx;
+}
+/* 团队赛介绍  */
+.teamRaceIntro{
+  padding: 40rpx 28rpx;
+  border:4rpx solid #4b4b4b;
+}
+.teamRaceIntro>.intro_head{
+  text-align: center;
+  margin-bottom: 36rpx;
+  font-size: 36rpx;
+  font-weight: 700;
+}
+/* 加入队伍首页  */
+.top_search{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* margin-top: 52rpx;  */
+  margin-bottom: 48rpx;
+  box-sizing: border-box;
+}
+image.backs{
+  width:64rpx;
+  height:64rpx;
+}
+.search{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width:88%;
+  height: 64rpx;
+  border:4rpx solid #4b4b4b; 
+  margin-left: 12rpx;
+  box-sizing: border-box;
+  padding-left: 10rpx;
+}
+.serach>input{
+  width:90%;
+}
+.search>image{
+  width:44rpx;
+  height:44rpx;
+}
+/* 队伍  */
+.joinTeam{
+  display:flex;
+  justify-content: space-between;
+  align-items: center; 
+  border:4rpx solid #4b4b4b; 
+  padding: 30rpx 28rpx 30rpx 40rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+.joinTeam>.team_name>text{
+  font-size: 24rpx;
+  color:#999;
+  margin-left: 12rpx;
+}
+.joinTeam>image{
+  width:118rpx;
+  height: 43rpx;
+}
+/* 建立队伍  */
+/* 名字  */
+.setName{
+  font-size: 26rpx;
+  color:#999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border:4rpx solid #4b4b4b;
+  margin-top: 36rpx;
+  padding: 0 24rpx;
+  height: 64rpx;
+}
+.set{
+  margin-top: 48rpx;
+  text-align: center;
+}
+.set>image{
+  width:166rpx;
+  height:55rpx;
+  
+}
+/* 邀请好友  */
+.invite{
+  padding-top: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.invite>.invit_name{
+  position: relative;
+}
+.invite>.invit_name>image{
+  width:382rpx;
+  height:188rpx;
+}
+.invite>.invit_name>.invit_box{
+  position: absolute;
+  width:86%;
+  height:54rpx;
+  line-height:54rpx;
+  top:50%;
+  left:50%;
+  transform: translate(-48%, -62%); 
+  /* border: 2rpx solid red; */
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #333;
+}
+.invite>.member{
+  color: #999;
+  margin-top: 24rpx;
+  margin-bottom: 48rpx;
+}
+.invite .teamName{
+  color:#ff6666;
+}
+.invite>image{
+  margin-top: 48rpx;
+  width:166rpx;
+  height:55rpx;
+}
+.share_image{
+  width:166rpx;
+  height:54rpx;
+  margin-top: 48rpx; 
+  border: none; 
+  padding: 0;
+  border-radius: 10rpx;
+  
+}
+.share_image::after{
+  border: none;
+  outline: none;
+  background-color:transparent;
+}
+.share_image>image{
+  width:166rpx;
+  height:54rpx;
+}
+/* 好友已满  */
+.mask{
+  position: fixed;
+  top:0;
+  left:0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+   display: none; 
+}
+.mask>view{
+  position: absolute;
+  top:50%;
+  left:50%;
+  width:340rpx;
+  height:76rpx;
+  line-height: 76rpx;
+  transform: translate(-50%,-50%);
+  z-index: 300;
+  background-color: #333;
+  border-radius: 10rpx;
+  color: #fff;
+  text-align: center;
+}

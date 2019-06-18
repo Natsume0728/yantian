@@ -1,0 +1,9 @@
+<!--pages/index/recom_read/recom_read.wxml-->
+<view class='yt_container'>
+  <!-- 常见问题  -->
+  <view class='monit_cont' bindtap='getDetail' data-id='{{item.id}}' wx:for='{{list}}' wx:key=''>
+    <view class='m_cont_head'><view class='line'></view>{{item.title}}</view>
+    <view class='m_cont'>{{item.des}}</view>
+  </view>
+</view>
+  
